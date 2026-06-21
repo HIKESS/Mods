@@ -1,0 +1,9 @@
+<Atlas>
+	<Texture filename="mevileyes_skilltree.tex" />
+	<Elements>
+		<Element name="background.tex" u1="0.000244140625" u2="0.999755859375" v1="0.00048828125" v2="0.99951171875" />
+		<Element name="mevileyes_background.tex" u1="0.4101796875" u2="0.82370703125" v2="0.999" v1="0.2636953125" variant="" />
+		<Element name="overlay_left.tex" u1="0.82570703125" u2="0.85007421875" v2="0.999" v1="0.2900625" variant="" />
+		<Element name="overlay_right.tex" u1="0.85207421875" u2="0.87644140625" v2="0.999" v1="0.2900625" variant="" />
+	</Elements>
+</Atlas>

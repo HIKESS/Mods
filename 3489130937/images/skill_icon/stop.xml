@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Atlas>
+    <Texture filename="stop.tex"/>
+    <Elements>
+        <Element name="stop.tex" u1="0.00390625" u2="0.777344" v1="0.222656" v2="0.996094"/>
+    </Elements>
+    <StraightAlpha>false</StraightAlpha>
+</Atlas>
+
