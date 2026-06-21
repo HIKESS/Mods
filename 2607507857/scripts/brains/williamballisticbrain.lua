@@ -1,0 +1,123 @@
+require "behaviours/wander"
+require "behaviours/faceentity"
+require "behaviours/standandattack"
+require "behaviours/chaseandattack"
+require "behaviours/panic"
+require "behaviours/follow"
+require "behaviours/attackwall"
+require "behaviours/standstill"
+require "behaviours/leash"
+
+local WilliamBallisticBrain = Class(Brain, function(self, inst)
+    Brain._ctor(self, inst)
+end)
+
+--Images will help chop, mine and fight.
+
+local MIN_FOLLOW_DIST = 0
+local TARGET_FOLLOW_DIST = 7
+local MAX_FOLLOW_DIST = 10
+
+local MAX_CHASE_TIME = 15
+local MAX_CHASE_DIST = 20
+
+local START_FACE_DIST = 5
+local KEEP_FACE_DIST = 20
+
+local KEEP_WORKING_DIST = 14
+local SEE_WORK_DIST = 10
+
+local KEEP_DANCING_DIST = 3
+
+local RUN_START_DIST = 10
+local RUN_STOP_DIST = 15 
+local KITING_DIST = 10
+local STOP_KITING_DIST = 15
+
+local RUN_AWAY_DIST = 12
+local STOP_RUN_AWAY_DIST = 15
+
+local AVOID_EXPLOSIVE_DIST = 5
+
+local DIG_TAGS = { "stump", "grave" }
+
+local function GetLeader(inst)
+    return inst.components.follower.leader
+end
+
+local function GetLeaderPos(inst)
+    return inst.components.follower.leader:GetPosition()
+end
+
+local function GetFaceTargetFn(inst)
+    local target = FindClosestPlayerToInst(inst, START_FACE_DIST, true)
+    return target ~= nil and not target:HasTag("notarget") and target or nil
+end
+
+local function IsNearLeader(inst, dist)
+    local leader = GetLeader(inst)
+    return leader ~= nil and inst:IsNear(leader, dist)
+end
+
+local function KeepFaceTargetFn(inst, target)
+    return not target:HasTag("notarget") and inst:IsNear(target, KEEP_FACE_DIST)
+end
+
+local function DanceParty(inst)
+    inst:PushEvent("dance")
+end
+
+local function ShouldDanceParty(inst)
+    local leader = GetLeader(inst)
+    return leader ~= nil and leader.sg:HasStateTag("dancing")
+end
+
+local function ShouldAvoidExplosive(target)
+    return target.components.explosive == nil
+        or target.components.burnable == nil
+        or target.components.burnable:IsBurning()
+end
+
+local function ShouldRunAway(target)
+    return not (target.components.health ~= nil and target.components.health:IsDead())
+        and (not target:HasTag("shadowcreature") or (target.components.combat ~= nil and target.components.combat:HasTarget()))
+end
+
+local function ShouldKite(target, inst)
+    return inst.components.combat:TargetIs(target)
+        and target.components.health ~= nil
+        and not target.components.health:IsDead()
+end
+
+local function ShouldWatchMinigame(inst)
+	if inst.components.follower.leader ~= nil and inst.components.follower.leader.components.minigame_participator ~= nil then
+		if inst.components.combat.target == nil or inst.components.combat.target.components.minigame_participator ~= nil then
+			return true
+		end
+	end
+	return false
+end
+
+local function WatchingMinigame(inst)
+	return (inst.components.follower.leader ~= nil and inst.components.follower.leader.components.minigame_participator ~= nil) and inst.components.follower.leader.components.minigame_participator:GetMinigame() or nil
+end
+
+local function ShouldRunAway(guy)
+    return not (guy:HasTag("player") or guy:HasTag("companion"))
+end
+
+local function CanAttackNow(inst)
+    return inst.components.combat.target == nil or not inst.components.combat:InCooldown()
+end
+
+function WilliamBallisticBrain:OnStart()
+    local root = PriorityNode(
+    {
+        StandAndAttack(self.inst),
+--        FaceEntity(self.inst, GetFaceTargetFn, KeepFaceTargetFn),
+    }, .25)
+
+    self.bt = BT(self.inst, root)
+end
+
+return WilliamBallisticBrain
