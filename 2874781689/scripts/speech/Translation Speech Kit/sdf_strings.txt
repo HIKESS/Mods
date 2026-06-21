@@ -1,0 +1,976 @@
+local G	  = GLOBAL
+local S   = G.STRINGS
+local A	  = G.ACTIONS
+local N   = S.NAMES
+local C   = S.CHARACTERS
+local R   = S.RECIPE_DESC
+local T   = S.TABS
+local CN  = S.CHARACTER_NAMES
+local CT  = S.CHARACTER_TITLES
+local CS  = S.CHARACTER_SURVIVABILITY
+local CQ  = S.CHARACTER_QUOTES
+local CD  = S.CHARACTER_DESCRIPTIONS
+local SA  = S.ACTIONS
+
+local Wilson  		= C.GENERIC.DESCRIBE
+local Willow  		= C.WILLOW.DESCRIBE
+local Wolfgang  	= C.WOLFGANG.DESCRIBE
+local Wendy  		= C.WENDY.DESCRIBE
+local WX78  		= C.WX78.DESCRIBE
+local Wickerbottom      = C.WICKERBOTTOM.DESCRIBE
+local Woodie  		= C.WOODIE.DESCRIBE
+local Maxwell  		= C.WAXWELL.DESCRIBE
+local Wigfrid 		= C.WATHGRITHR.DESCRIBE
+local Webber 		= C.WEBBER.DESCRIBE
+local require 		= G.require
+
+--Character names, titles, survivability, quotes, etc.
+CN.sdf = "Sdf"
+CT.sdf = "Hero of Gallowmere"
+CS.sdf = "Fell by the first arrow"
+CQ.sdf = "\"Gulp!\""
+CD.sdf = "*Seek out Chalice of Souls for Hall of Heroes rewards!\n*Find Life Bottles to increase health.\n*Equip many useful weapons, shields and armors."
+C.SDF = require "speech/english/speech_sdf"
+
+
+--Special Actions
+SA.CASTSPELL.SDF_DRAGON_POTION_BREATHEFIRE = "Breathe Fire"
+SA.CASTSPELL.SDF_AXE_THROW = "Throw Axe"
+SA.CASTSPELL.SDF_LIGHTNING_GAUNTLET_CHARGE = "Charge Cast"
+SA.CASTSPELL.SDF_KING_PEREGRINS_CROWN_CALLTOARMS = "Call To Arms"
+
+--ActionHandler Actions
+S.ACTIONHANDLER_SDF_CLUB_ENFLAME = "Enflame"
+S.ACTIONHANDLER_SDF_DRAGON_POTION_IMBUE = "Imbue Dragon Potion"
+S.ACTIONHANDLER_SDF_GALLOWMERE_KNIGHT_COMMAND_STAY = "Order to Stand Guard"
+S.ACTIONHANDLER_SDF_GALLOWMERE_KNIGHT_COMMAND_FOLLOW = "Order to Follow"
+S.ACTIONHANDLER_SDF_LIGHTNING_GAUNTLET_TRANSFER = "Transfer"
+S.ACTIONHANDLER_SDF_RUNESTONE_OFFERING = "Offer Chalice of Souls"
+S.ACTIONHANDLER_SDF_SOUL_HELMET_OFFERING = "Save Lost Soul"
+S.ACTIONHANDLER_SDF_WITCH_TALISMAN_OFFERING_CHALICE_ALTAR = "Reconstitute Chalice Altar"
+S.ACTIONHANDLER_SDF_WITCH_TALISMAN_OFFERING_GOLD_ARMOR = "Fabricate Golden Armor"
+S.ACTIONHANDLER_SDF_WITCH_TALISMAN_OFFERING_GOLD_SHIELD = "Sticky Fingered Deal"
+
+--Announcements
+--Chalice of Souls
+S.ANNOUNCE_SDF_CHALICE_OF_SOULS_DESC = {
+    [0] = "Empty... not a single soul.",
+    [1] = "A cup that is filled with ones heroism!\n",
+    [2] = "Many dispatched souls swirl about...\n Collected from the "
+}
+
+--Chalice Altars
+S.ANNOUNCE_SDF_CHALICE_ALTAR_DESC = {
+    [0] = "Seems to be an abandoned Chalice Altar, no Chalices to be found here.",
+    [1] = "st Altar",
+    [2] = "nd Altar",
+    [3] = "rd Altar",
+    [4] = "th Altar",
+    [5] = "A cup that is filled with ones heroism!",
+    [6] = "Chalice has already been Collected!"
+}
+
+--Chalice Rewards
+S.ANNOUNCE_SDF_CHALICE_RUNESTONE_REWARDS = {
+    [1] = "Canny Tim: How I wish I could fight at your side again, Sir. \nBut hold, you could take my Crossbow.",
+    [2] = "Canny Tim: I have something that may help you on your quest, captain... \nI give it to you freely, though I have no idea what it is.",
+    [3] = "Stanyer Iron Hewer: Here, take my warhammer, it'll smash anything and it won't fall apart like a Club. \nI only ever get to use it cracking walnuts around this place.",
+    [4] = "Stanyer Iron Hewer: Here, I have a little extra something here I can give you. \nCould help the old quest, do you want it?",
+    [5] = "Woden the Mighty: Still, I suppose it's not fair to take it out on them... \nTake my sword and do try not to stab yourself in the foot.",
+    [6] = "Woden the Mighty: I have something here I can lend to you... take it or leave it... \nBut remember I'm only doing this for the sake of Gallowmere's doomed population and not for you... \nyou gangly buffoon!",
+    [7] = "Ravenhooves the Archer: Do yourself a favour, Fortesque, take my Longbow... more powerful than a Crossbow.",
+    [8] = "Imanzi Shongama: Your bow and arrows are fine for itty bitty jobs, \nbut if you wanna pack some serious heat you should take this Spear.",
+    [9] = "Bloodmonath: Still, I lend you my Axe... \nYou swing her, you throw her, she thirsts for slaughter as much as I.",
+    [10] = "Ravenhooves the Archer: Do yourself a favour, Fortesque, take my Flaming Longbow... the option of Flaming arrows.",
+    [11] = "Karl Sturngard: Some say it is better to have a magic sword than a magic shield but I say to you that this is rubbish! \nI think maybe you should take my shield... yah? It is magic, Herr Fortesque.",
+    [12] = "Bloodmonath: Hey, I have something here for you. You like it very much. You want?",
+    [13] = "Dirk Steadfast: It's not enough just to have a magic shield, you know, no matter what that soft, thickie Sturnguard says. \nDaniel, man, y'cannat go into battle against an army of undead without a magic sword... Here take mine!",
+    [14] = "Ravenhooves the Archer: Do yourself a favour, Fortesque, take my Magic Longbow... it is truly the weapon of noblemen.",
+    [15] = "Megwynne Stormbinder: Would you like to take my magic Lightning bolts? \nI don't have many but they're very powerful.",
+    [16] = "Ravenhooves the Archer: Oh, Daniel... I've got something here I can give you but I've no idea what it is. \nDo you fancy a little gamble, like?",
+    [17] = "Imanzi Shongama: Well hello stranger. I've got a little present for you... \nWhy don't you shut your eye and hold out your hands?",
+    [18] = "Karl Sturngard: I have something else I can give to you, something you may find verrrry interesting.",
+    [19] = "Dirk Steadfast: I've got something here I can give you but I've no idea what it is. \nD'ya fancy your chances, like?",
+    [20] = "Megwynne Stormbinder: I have a gift I can give to you but sadly I cannot say how useful you will find it."
+}
+
+S.ANNOUNCE_SDF_CHALICE_RUNESTONE_REWARDS_HERO = {
+    [1] = "Infomation Gargoyle: You prove us all wrong! \nMaybe it is destined to be a Hero, maybe it can defeat Zarok! \nThe people of Gallowmere may never know of your past mistakes and you will indeed be remembered as the peoples hero!",
+    [2] = "Infomation Gargoyle: Your time in exile is over, welcome to your new home Sir Daniel Fortesque!",
+    [3] = "Infomation Gargoyle: Even the Fallen Warriors of Gallowmere will come to ones aid in battle. Now hurry along and view its True Heroic self."
+}
+
+S.ANNOUNCE_SDF_CHALICE_RUNESTONE_REWARDS_BONUS = {
+    "Canny Tim: I have something that may help you on your quest, captain... \nI give it to you freely, though I have no idea what it is.",
+    "Stanyer Iron Hewer: Here, I have a little extra something here I can give you. \nCould help the old quest, do you want it?",
+    "Woden the Mighty: I have something here I can lend to you... take it or leave it... \nBut remember I'm only doing this for the sake of Gallowmere's doomed population and not for you... \nyou gangly buffoon!",
+    "Bloodmonath: Hey, I have something here for you. You like it very much. You want?",
+    "Ravenhooves the Archer: Oh, Daniel... I've got something here I can give you but I've no idea what it is. \nDo you fancy a little gamble, like?",
+    "Imanzi Shongama: Well hello stranger. I've got a little present for you... \nWhy don't you shut your eye and hold out your hands?",
+    "Karl Sturngard: I have something else I can give to you, something you may find verrrry interesting.",
+    "Dirk Steadfast: I've got something here I can give you but I've no idea what it is. \nD'ya fancy your chances, like?",
+    "Megwynne Stormbinder: I have a gift I can give to you but sadly I cannot say how useful you will find it."
+}
+
+S.ANNOUNCE_SDF_CHALICE_RUNESTONE_REWARDS_FAIL = {
+    [1] =  "????: Chalice was empty... Offering refused... Do try filling it next time would yeah?",
+    [2] =  "????: This Chalice was already Offered! Poor souls are now lost... But still the shattered bits are worth something to that greedy Merchant Gargoyle."
+}
+
+
+--Statue Interaction
+S.ANNOUNCE_SDF_STATUE_QUOTES = {
+    [0] = "Desecrated statue of legendary warriors of Gallowmere.",
+    [1] = "Hero of Gallowmere... \nI'll show you!",
+    [2] = "Captain Fortesque! It's me, Canny Tim. \nDoes the battle go well?",
+    [3] = "Knock a few heads for old Stanyer Iron Hewer, eh?",
+    [4] = "Fortesque, you jawless arrow magnet... \nWhat are you doing back here?",
+    [5] = "Dan, Dan, Dan! Tell me, what's a warrior queen got to do to meet someone like you?",
+    [6] = "Look at you running around in your bones, Fortesque! \nYou're so nouveau dead.",
+    [7] = "If this Zorak so bad, why you get to go back? \nWhy you of all people, Fortisskay?",
+    [8] = "Ah Herr Fortesque... \nYou are back on the battlefield, yah? \nZis is good.",
+    [9] = "Aalreet Dan man, how ya doing?",
+    [10] = "Daniel, there you are! I was so worried about you.",
+    [11] = "The Hero of Gallowmere!"
+}
+
+--Information Gargoyle Talking
+S.ANNOUNCE_SDF_INFORMATION_GARGOYLE_GREETINGS = {
+"It has risen again... Sir Daniel Fortesque! \nSee? \nThe Hero of Gallowmere who fell at the first charge!",
+"Welcome to the Hall of Heroes, \nwhere the bravest warriors from history spend eternity, \nfeasting, singing and arm wrestling!",
+"Back from the battles so soon?",
+"It's the Hall of Heroes shopping Mall! \nBargain hunters should check out the ground floor. \nWell to do shoppers should check out the upper floor. \nThat's where it's at!",
+"Back and forth like a supernatural yo yo! \nMaybe the Master will make it harder to find those magic egg cups!",
+"Wouldn't this make a wonderful tourist attraction!"
+}
+
+S.ANNOUNCE_SDF_INFORMATION_GARGOYLE_QUOTES = {
+"The fog of war and the shrouds of time \nconspired to turn the arrow fodder into the saviour of the day. \nBut we knows better...",
+"Let it alone! Fate has given it a second chance, \na chance to forget the ignoble truth, \na chance to defeat Zarok and live up to the legend. \nWe hopes it does well.",
+"If they think you are worthy enough \nyou may be able to persuade them to give you a new weapon.",
+"It must think it is a hero by now, \nbut only a true hero is worthy of a place in the Hall of Heroes.",
+"See the Ghostly Statue of your fraudster self? \nWhen it is has turned solid a True Hero you will be.",
+"Gaining allies in the Hall of the Heroes is the way forward!",
+"Hack! Choppety chop! \nOff with a few zombies heads and it thinks it can redeem itself in battle!",
+"You still have a long way to go to rank as the best!",
+"Come see Sturnguard the Mighty! \nCome see the last of the Centaurs! \nOh and see that dork over there, that's Daniel Fortesque 'would be hero'! \nHa ha ha!"
+}
+
+--Health Fountain Status
+S.ANNOUNCE_SDF_HEALTHFOUNTAIN_STATUS = {
+    [0] = "Depleted Fountain of Rejuvenation",
+    [1] = "Spring of life energy has been exhasusted!",
+    [2] = "Trickling spring of life energy!",
+    [3] = "Weeping spring of life energy!",
+    [4] = "Flowing spring of life energy!",
+    [5] = "Teeming spring of life energy!",
+    [6] = "Spouting spring of life energy!",
+    [7] = "Gushing spring of life energy!",
+    [8] = "Fountain of Rejuvenation"
+}
+
+--Gallowmere Knight Talking
+S.ANNOUNCE_SDF_GALLOWMERE_KNIGHT_GREETINGS = {
+"This place is clear and secure Sir!",
+"I'm always here, whenever you need me.",
+"Glad to see you alive Sir!",
+"There you are my Captain."
+}
+
+S.ANNOUNCE_SDF_GALLOWMERE_KNIGHT_GREETINGS_COMMON = {
+"Well met!",
+"Good morrow!",
+"Our Kingdom shall not fall.",
+"Everything is taken care of.",
+"There are tons of weird animals here..."
+}
+
+S.ANNOUNCE_SDF_GALLOWMERE_KNIGHT_RECRUIT = "For the honour of Gallowmere!"
+
+S.ANNOUNCE_SDF_GALLOWMERE_KNIGHT_VICTORY_EPIC = "This battle is ours!"
+
+S.ANNOUNCE_SDF_GALLOWMERE_KNIGHT_VICTORY = {
+"Glory to King Peregrin!",
+"Away you foul fiend!",
+"Foe has been slain!",
+"Vanquished!",
+"Well fought!",
+"Rest in peace..."
+}
+
+S.ANNOUNCE_SDF_GALLOWMERE_KNIGHT_FOLLOW = {
+"Lead the charge!",
+"At your service my Captain.",
+"Anything to fight? I can't wait."
+}
+
+S.ANNOUNCE_SDF_GALLOWMERE_KNIGHT_STAY = {
+"It's been an honour serving with you.",
+"Yes Sir, Guarding these grounds!",
+"This place looks nice."
+}
+
+S.ANNOUNCE_SDF_GALLOWMERE_KNIGHT_CALLTOARMS = "To Arms! For the honour of Gallowmere!"
+
+
+--ANNOUNCE_NODANIELHELMET = announcement said when a character tries to put on Daniel's Helemt is forced to take it right back off.
+C.GENERIC.ANNOUNCE_NODANIELHELMET = "Looks badly worn and used..." --generic = Wilson and mod characters with no quote written.
+
+--ANNOUNCE_NODANIELSUIT = announcement said when a character tries to put on Daniel's suit or armor and is forced to take it right back off.
+C.GENERIC.ANNOUNCE_NODANIELSUIT = "It doesn't fit me quite right..." --generic = Wilson and mod characters with no quote written.
+C.WILLOW.ANNOUNCE_NODANIELSUIT = "It looks too old-fashioned."
+C.WOLFGANG.ANNOUNCE_NODANIELSUIT = "My muscles do not fit!"
+C.WENDY.ANNOUNCE_NODANIELSUIT = "I can't wear that. Aura of these items is strange."
+C.WX78.ANNOUNCE_NODANIELSUIT = "INADEQUATE ARMOR PARAMETERS"
+C.WICKERBOTTOM.ANNOUNCE_NODANIELSUIT = "There's no way I'll wear these antiques!"
+C.WOODIE.ANNOUNCE_NODANIELSUIT = "Uncomfortable for chopping things."
+C.WAXWELL.ANNOUNCE_NODANIELSUIT = "I prefer my stylish clothing."
+C.WATHGRITHR.ANNOUNCE_NODANIELSUIT = "Warrior like me doesn't need it!"
+C.WEBBER.ANNOUNCE_NODANIELSUIT = "We don't like this. No can do."
+
+--Names
+N.SDF_HELMET = "Dan's Helmet"
+N.SDF_BOOK_OF_GALLOWMERE = "Book of Gallowmere"
+N.SDF_CHALICE_HALL_OF_HEROES = "Chalice of Souls"
+N.SDF_CHALICE_RUNESTONE = "Runestone"
+N.SDF_CHALICE_ALTAR = "Chalice of Souls Altar"
+N.SDF_CHALICE_OF_SOULS = "Chalice of Souls"
+N.SDF_SOUL_HELMET = "Soul Helmet"
+N.SDF_WITCH_TALISMAN = "Witch Talisman"
+N.SDF_CHEST_RUNESTONE = "Runestone Chest"
+N.SDF_CHEST_WOODEN = "Wooden Chest"
+N.SDF_CHEST_SKULL = "Skull Chest"
+N.SDF_TREASURECHEST = "Treasure Chest"
+N.SDF_STATUE = "Hall of Heroes Statue"
+N.SDF_WALL_WOOD = "Wooden Wall"
+N.SDF_WALL_STONE = "Stone Wall"
+N.SDF_INFORMATION_GARGOYLE = "Information Gargoyle"
+N.SDF_MERCHANT_GARGOYLE = "Merchant Gargoyle"
+N.SDF_SHOP_GARGOYLE = "Shop Gargoyle"
+N.SDF_GALLOWMERE_KNIGHT = "Knight of Gallowmere"
+N.SDF_KING_PEREGRINS_CROWN = "King Peregrin's Crown"
+
+N.SDF_HEALTHFOUNTAIN = "Fountain of Rejuvenation"
+N.SDF_LIFEBOTTLE = "Life Bottle"
+N.SDF_ENERGYVIAL = "Energy Vial"
+
+N.SDF_SMALL_SWORD = "Small Sword"
+N.SDF_BROAD_SWORD = "Broad Sword"
+N.SDF_ENCHANTED_SWORD = "Enchanted Sword"
+N.SDF_MAGIC_SWORD = "Magic Sword"
+N.SDF_CLUB = "Club"
+N.SDF_HAMMER = "Hammer"
+N.SDF_AXE = "Axe"
+N.SDF_AXE_THROWN = "Axe"
+N.SDF_THROWING_DAGGERS = "Throwing Daggers"
+N.SDF_CROSSBOW = "Crossbow"
+N.SDF_CROSSBOW_BOLTS = "Crossbow Bolts"
+N.SDF_LONGBOW = "Longbow"
+N.SDF_STANDARD_ARROWS = "Standard Arrows"
+N.SDF_FLAMING_LONGBOW = "Flaming Longbow"
+N.SDF_FLAMING_ARROWS = "Flaming Arrows"
+N.SDF_MAGIC_LONGBOW = "Magic Longbow"
+N.SDF_MAGICAL_ARROWS = "Magical Arrows"
+N.SDF_SPEAR = "Spear"
+N.SDF_SPEARS = "Spears"
+N.SDF_LIGHTNING_GAUNTLET = "Lightning Gauntlet"
+N.SDF_LIGHTNING = "Lightning"
+N.SDF_GOODLIGHTNING = "Good Lightning"
+N.SDF_CHICKEN_DRUMSTICK = "Chicken Drumstick"
+
+N.SDF_COPPER_SHIELD = "Copper Shield"
+N.SDF_SILVER_SHIELD = "Silver Shield"
+N.SDF_GOLD_SHIELD = "Gold Shield"
+
+N.SDF_VICTORIAN_SUIT = "Victorian Suit"
+N.SDF_GOLD_ARMOR = "Golden Armor"
+N.SDF_DRAGON_POTION = "Dragon Potion"
+N.SDF_DRAGON_POTION_EMPTY = "Emptied Dragon Potion"
+N.SDF_DRAGON_POTION_SKULLCAP = "Dragon Breath"
+N.SDF_DRAGON_POTION_DRAGONFIRE = "Dragon Fire"
+
+--Recipe Descriptions
+R.SDF_BOOK_OF_GALLOWMERE = "A bestiary for beasts and non-beasts alike."
+R.SDF_WITCH_TALISMAN = "An instrument used to reset a Chalice Altar which the Chalice has been lost or not offered, or restore other lost time sensitive items."
+R.SDF_SHOP_GARGOYLE = "The perfect adventure companion, providing various services."
+
+R.SDF_SMALL_SWORD = "Nearly blunt. swing it hard!"
+R.SDF_BROAD_SWORD = "All tho not very enchanting, it's enchantable!"
+R.SDF_ENCHANTED_SWORD = "Just add magic!"
+R.SDF_MAGIC_SWORD = "Carried by mighty warriors. And you."
+R.SDF_CLUB = "Bash with it! Burn with it! But beware, one bash too many and it will break."
+R.SDF_HAMMER = "Use to crack skulls or walnuts."
+R.SDF_AXE = "Chops down trees and non-trees."
+R.SDF_THROWING_DAGGERS = "Throw these away."
+R.SDF_CROSSBOW = "It's got rapid fire, complicated parts, a bolt decision."
+R.SDF_CROSSBOW_BOLTS = "You could poke an eye out with this thing."
+R.SDF_LONGBOW = "Long distance, but has its drawbacks."
+R.SDF_STANDARD_ARROWS = "Worth a shot."
+R.SDF_FLAMING_LONGBOW = "Ready... Aim.. Fire!"
+R.SDF_FLAMING_ARROWS = "The perfect match!"
+R.SDF_MAGIC_LONGBOW = "Best bow by a long shot."
+R.SDF_MAGICAL_ARROWS = "Growing toxic by the day."
+R.SDF_SPEAR = "Straight to the point."
+R.SDF_SPEARS = "Spear today, gone tomorrow."
+R.SDF_LIGHTNING_GAUNTLET = "Great for networking!"
+R.SDF_LIGHTNING = "Shocking isn't it?"
+
+R.SDF_COPPER_SHIELD = "Less protective plate, more dinner plate."
+R.SDF_SILVER_SHIELD = "Penultimate protection."
+R.SDF_GOLD_SHIELD = "Gold standard in self-defense."
+
+R.SDF_VICTORIAN_SUIT = "Like a true gentleman!"
+R.SDF_GOLD_ARMOR = "This armor is from the past and future! Time travel is so lucrative."
+
+------------------------------------------
+--Examinations (SDF's only quotes written for that prefab!)
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_HELMET = "Weak against arrows... And everything else."
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_BOOK_OF_GOLLOWMERE = "A bestiary for beasts and non-beasts alike."
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_CHALICE_HALL_OF_HEROES = "A massive Goblet filled with collection of all the gathered soul chalices."
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_CHALICE_RUNESTONE = "A large stone slab engraved with a cup, a showing of ones heroism is required!"
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_CHALICE_ALTAR = "Houses a cup that is filled with ones heroism!"
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_CHALICE_OF_SOULS = "Empty... not a single soul."
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_SOUL_HELMET = "A lost soul has lingered... Should I find its eternal rest?"
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_WITCH_TALISMAN = "Witches have been known to offer help to the questing adventurer."
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_CHEST_RUNESTONE = "Coffer of gifts from the Fallen Heroes!"
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_CHEST_WOODEN = "Spiked wooden box filled with spoils of war."
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_CHEST_SKULL = "Casket brimming with violence!"
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_STATUE = "Desecrated statue of legendary warriors of Gallowmere."
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_WALL_WOOD = "Sturdy fireproof wood of The Hall of Heroes!"
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_WALL_STONE = "Solid stone of The Hall of Heroes!"
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_INFORMATION_GARGOYLE = "Their clues will often be as cryptic as they are informative."
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_MERCHANT_GARGOYLE = "Services for gold! Known for dealing with the sticky-fingered Imps."
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_SHOP_GARGOYLE = "Services for gold on the go! Known for dealing with the sticky-fingered Imps."
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_GALLOWMERE_KNIGHT = "A fallen knight in service to King Peregrin!"
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_KING_PEREGRINS_CROWN = "A calling to those in service to the King..."
+
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_HEALTHFOUNTAIN = "Spring of life energy!"
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_LIFEBOTTLE = "The contents of this bottle reduces the yoke of death."
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_ENERGYVIAL = "A small dose of vitality in an elegant vial."
+
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_SMALL_SWORD = "Small blade is a good start." 
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_BROAD_SWORD = "This sword is quite heavy!" 
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_ENCHANTED_SWORD = "A sharp and mighty sword." 
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_MAGIC_SWORD = "Never have to sharpen another blade!"
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_CLUB = "Can take some heat."
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_HAMMER = "It'll smash anything!"
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_AXE = "Drink deep of demon blood my proud beauty..."
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_THROWING_DAGGERS = "Throw these away."
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_CROSSBOW = "Not that there's anything clever about shooting someone in the eye..."
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_CROSSBOW_BOLTS = "You could poke an eye out with this thing."
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_LONGBOW = "For those on horseback, or those with horse backs."
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_STANDARD_ARROWS = "Worth a shot."
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_FLAMING_LONGBOW = "Never stops smoldering..."
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_FLAMING_ARROWS = "The perfect match!"
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_MAGIC_LONGBOW = "It will definitely grow on you!"
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_MAGICAL_ARROWS = "Growing toxic by the day."
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_SPEAR = "Think of me when you throw it."
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_SPEARS = "Spear today, gone tomorrow."
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_LIGHTNING_GAUNTLET = "I can feel the crackling at my finger tips!"
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_LIGHTNING = "Shocking isn't it?"
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_GOODLIGHTNING = "Feel good tingles!"
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_CHICKEN_DRUMSTICK = "You are what you eat."
+
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_COPPER_SHIELD = "Something I can get behind."
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_SILVER_SHIELD = "Signature bulwark of a steward defender."
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_GOLD_SHIELD = "Used properly this shield will make me invincible!"
+
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_VICTORIAN_SUIT = "We've got standards."
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_GOLD_ARMOR = "Worth its weight in gold."
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_DRAGON_POTION = "It gives you armour that is impervious to heat, plus it lets you breathe fire."
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_DRAGON_POTION_EMPTY = "All of the dragon's serum has been slurped!"
+STRINGS.CHARACTERS.SDF.DESCRIBE.SDF_DRAGON_POTION_SKULLCAP = "...it lets you breathe fire."
+
+------------------------------------------
+--Examinations (Wilson's also default to mod characters that do not have any quotes written for that prefab!)
+Wilson.SDF_HELMET = "I am sure the owner survived..."
+Wilson.SDF_BOOK_OF_GOLLOWMERE = "Infomation gathered on all things Gallowmere!"
+Wilson.SDF_CHALICE_HALL_OF_HEROES = "A massive Goblet floating on a table."
+Wilson.SDF_CHALICE_RUNESTONE = "A large stone slab engraved with a cup."
+Wilson.SDF_CHALICE_ALTAR = "A ghastly floating cup!"
+Wilson.SDF_CHALICE_OF_SOULS = "Pretty fancy drinking cup."
+Wilson.SDF_SOUL_HELMET = "Small murmurs can be heard coming from this."
+Wilson.SDF_WITCH_TALISMAN = "Yuck... covered in pumpkin, mushrooms and... amber?"
+Wilson.SDF_CHEST_RUNESTONE = "Odd looking chest..."
+Wilson.SDF_CHEST_WOODEN = "Fragile wooden chest with Spikes."
+Wilson.SDF_CHEST_SKULL = "An uneasy looking chest with a crest."
+Wilson.SDF_STATUE = "Desecrated statue... Only the base remains."
+Wilson.SDF_WALL_WOOD = "It won't catch flame... fireproof wood?!"
+Wilson.SDF_WALL_STONE = "This stone will not be chipped!"
+Wilson.SDF_INFORMATION_GARGOYLE = "Seems like it wishes to talk, but won't say a word to me."
+Wilson.SDF_MERCHANT_GARGOYLE = "Takes gold and gives items, where does it store it all?"
+Wilson.SDF_SHOP_GARGOYLE = "A smaller gold hungry wall plaque."
+Wilson.SDF_GALLOWMERE_KNIGHT = "A faintly glowing skeleton knight."
+Wilson.SDF_KING_PEREGRINS_CROWN = "A crown that can't be worn... what a shame."
+
+Wilson.SDF_HEALTHFOUNTAIN = "Strange fluid coming from the ground!"
+Wilson.SDF_LIFEBOTTLE = "Not sure what that fluid inside is..."
+Wilson.SDF_ENERGYVIAL = "I will not taste this strange liquid."
+
+Wilson.SDF_SMALL_SWORD = "Long thin blade." 
+Wilson.SDF_BROAD_SWORD = "Heavy sweeping strikes!" 
+Wilson.SDF_ENCHANTED_SWORD = "Just as heavy but more sharp." 
+Wilson.SDF_MAGIC_SWORD = "Seems to never dull!"
+Wilson.SDF_CLUB = "Useful for bashing and exploring."
+Wilson.SDF_HAMMER = "So heavy!!"
+Wilson.SDF_AXE = "Its like a bomerang, but deadly to both!"
+Wilson.SDF_THROWING_DAGGERS = "Its all in the wrist!"
+Wilson.SDF_CROSSBOW = "Rapid firing mechanism."
+Wilson.SDF_CROSSBOW_BOLTS = "Honed tipped!"
+Wilson.SDF_LONGBOW = "Peculiarly large bow."
+Wilson.SDF_STANDARD_ARROWS = "Sharp tipped!"
+Wilson.SDF_FLAMING_LONGBOW = "Flaky ash coated bow."
+Wilson.SDF_FLAMING_ARROWS = "Heated tipped!"
+Wilson.SDF_MAGIC_LONGBOW = "Erratic fungus ridden bow."
+Wilson.SDF_MAGICAL_ARROWS = "Toxic tipped!"
+Wilson.SDF_SPEAR = "Wrappings for other spears"
+Wilson.SDF_SPEARS = "An over sized javelin."
+Wilson.SDF_LIGHTNING_GAUNTLET = "Never strike in the same place twice!"
+Wilson.SDF_LIGHTNING = "Zap zap!"
+Wilson.SDF_GOODLIGHTNING = "I am not sure about this... odd feeling."
+Wilson.SDF_CHICKEN_DRUMSTICK = "...five second rule?"
+
+Wilson.SDF_COPPER_SHIELD = "Better than no protecton!"
+Wilson.SDF_SILVER_SHIELD = "Easy wielding argent shield."
+Wilson.SDF_GOLD_SHIELD = "Glorious shield that can take on a siege!"
+
+Wilson.SDF_VICTORIAN_SUIT = "Too aristocratic for my taste."
+Wilson.SDF_GOLD_ARMOR = "The way it shines... Something isn't right about it."
+Wilson.SDF_DRAGON_POTION = "Seems to contain dragons breath... Not drinking. Nope."
+Wilson.SDF_DRAGON_POTION_EMPTY = "Dry... All gone."
+Wilson.SDF_DRAGON_POTION_SKULLCAP = "I don't even..."
+
+------------------------------------------
+--Willow.SDF_HELMET = "I am sure the owner survived..."
+--Willow.SDF_BOOK_OF_GOLLOWMERE = "Infomation gathered on all things Gallowmere!"
+--Willow.SDF_CHALICE_HALL_OF_HEROES = "A massive Goblet floating on a table."
+--Willow.SDF_CHALICE_RUNESTONE = "A large stone slab engraved with a cup."
+--Willow.SDF_CHALICE_ALTAR = "A ghastly floating cup!"
+--Willow.SDF_CHALICE_OF_SOULS = "Pretty fancy drinking cup."
+--Willow.SDF_SOUL_HELMET = "Small murmurs can be heard coming from this."
+--Willow.SDF_WITCH_TALISMAN = "Yuck... covered in pumpkin, mushrooms and... amber?"
+--Willow.SDF_CHEST_RUNESTONE = "Odd looking chest..."
+--Willow.SDF_CHEST_WOODEN = "Fragile wooden chest with Spikes."
+--Willow.SDF_CHEST_SKULL = "An uneasy looking chest with a crest."
+--Willow.SDF_STATUE = "Desecrated statue... Only the base remains."
+--Willow.SDF_WALL_WOOD = "It won't catch flame... fireproof wood?!"
+--Willow.SDF_WALL_STONE = "This stone will not be chipped!"
+--Willow.SDF_INFORMATION_GARGOYLE = "Seems like it wishes to talk, but won't say a word to me."
+--Willow.SDF_MERCHANT_GARGOYLE = "Takes gold and gives items, where does it store it all?"
+--Willow.SDF_SHOP_GARGOYLE = "A smaller gold hungry wall plaque."
+--Willow.SDF_GALLOWMERE_KNIGHT = "A faintly glowing skeleton knight."
+--Willow.SDF_KING_PEREGRINS_CROWN = "A crown that can't be worn... what a shame."
+
+--Willow.SDF_HEALTHFOUNTAIN = "Strange fluid coming from the ground!"
+--Willow.SDF_LIFEBOTTLE = "Not sure what that fluid inside is..."
+--Willow.SDF_ENERGYVIAL = "I will not taste this strange liquid."
+
+
+Willow.SDF_SMALL_SWORD = "Short version of a sword."
+Willow.SDF_BROAD_SWORD = "That sword can make a slice!"
+Willow.SDF_ENCHANTED_SWORD = "That sword can make a slice!"
+Willow.SDF_MAGIC_SWORD = "Magically sharp."
+--Willow.SDF_CLUB = "Useful for bashing and exploring."
+Willow.SDF_HAMMER = "Powerful, but clunky hammer."
+Willow.SDF_AXE = "Sharp enough to kill!"
+
+Willow.SDF_THROWING_DAGGERS = "These daggers may find useful."
+--Willow.SDF_CROSSBOW = "Rapid firing mechanism."
+--Willow.SDF_CROSSBOW_BOLTS = "Honed tipped!"
+--Willow.SDF_LONGBOW = "Peculiarly large bow."
+--Willow.SDF_STANDARD_ARROWS = "Sharp tipped!"
+--Willow.SDF_FLAMING_LONGBOW = "Flaky ash coated bow."
+--Willow.SDF_FLAMING_ARROWS = "Heated tipped!"
+--Willow.SDF_MAGIC_LONGBOW = "Erratic fungus ridden bow."
+--Willow.SDF_MAGICAL_ARROWS = "Toxic tipped!"
+--Willow.SDF_SPEAR = "Wrappings for other spears"
+--Willow.SDF_SPEARS = "An over sized javelin."
+--Willow.SDF_LIGHTNING_GAUNTLET = "Never strike in the same place twice!"
+--Willow.SDF_LIGHTNING = "Zap zap!"
+--Willow.SDF_GOODLIGHTNING = "I am not sure about this... odd feeling."
+--Willow.SDF_CHICKEN_DRUMSTICK = "...five second rule?"
+
+--Willow.SDF_COPPER_SHIELD = "Better than no protecton!"
+--Willow.SDF_SILVER_SHIELD = "Easy wielding argent shield."
+--Willow.SDF_GOLD_SHIELD = "Glorious shield that can take on a siege!"
+
+Willow.SDF_VICTORIAN_SUIT = "Like an very old lady. No way!"
+Willow.SDF_GOLD_ARMOR = "Terribly old-fashioned."
+--Willow.SDF_DRAGON_POTION = "Seems to contain dragons breath... Not drinking. Nope."
+--Willow.SDF_DRAGON_POTION_EMPTY = "Dry... All gone."
+--Willow.SDF_DRAGON_POTION_SKULLCAP = "I don't even..."
+
+------------------------------------------
+--Wolfgang.SDF_HELMET = "I am sure the owner survived..."
+--Wolfgang.SDF_BOOK_OF_GOLLOWMERE = "Infomation gathered on all things Gallowmere!"
+--Wolfgang.SDF_CHALICE_HALL_OF_HEROES = "A massive Goblet floating on a table."
+--Wolfgang.SDF_CHALICE_RUNESTONE = "A large stone slab engraved with a cup."
+--Wolfgang.SDF_CHALICE_ALTAR = "A ghastly floating cup!"
+--Wolfgang.SDF_CHALICE_OF_SOULS = "Pretty fancy drinking cup."
+--Wolfgang.SDF_SOUL_HELMET = "Small murmurs can be heard coming from this."
+--Wolfgang.SDF_WITCH_TALISMAN = "Yuck... covered in pumpkin, mushrooms and... amber?"
+--Wolfgang.SDF_CHEST_RUNESTONE = "Odd looking chest..."
+--Wolfgang.SDF_CHEST_WOODEN = "Fragile wooden chest with Spikes."
+--Wolfgang.SDF_CHEST_SKULL = "An uneasy looking chest with a crest."
+--Wolfgang.SDF_STATUE = "Desecrated statue... Only the base remains."
+--Wolfgang.SDF_WALL_WOOD = "It won't catch flame... fireproof wood?!"
+--Wolfgang.SDF_WALL_STONE = "This stone will not be chipped!"
+--Wolfgang.SDF_INFORMATION_GARGOYLE = "Seems like it wishes to talk, but won't say a word to me."
+--Wolfgang.SDF_MERCHANT_GARGOYLE = "Takes gold and gives items, where does it store it all?"
+--Wolfgang.SDF_SHOP_GARGOYLE = "A smaller gold hungry wall plaque."
+--Wolfgang.SDF_GALLOWMERE_KNIGHT = "A faintly glowing skeleton knight."
+--Wolfgang.SDF_KING_PEREGRINS_CROWN = "A crown that can't be worn... what a shame."
+
+--Wolfgang.SDF_HEALTHFOUNTAIN = "Strange fluid coming from the ground!"
+--Wolfgang.SDF_LIFEBOTTLE = "Not sure what that fluid inside is..."
+--Wolfgang.SDF_ENERGYVIAL = "I will not taste this strange liquid."
+
+Wolfgang.SDF_SMALL_SWORD = "This sword is too short!"
+Wolfgang.SDF_BROAD_SWORD = "Long sword! I like it!"
+Wolfgang.SDF_ENCHANTED_SWORD = "Long sword! I like it!"
+Wolfgang.SDF_MAGIC_SWORD = "This sword is strange!"
+--Wolfgang.SDF_CLUB = "Useful for bashing and exploring."
+Wolfgang.SDF_HAMMER = "It's heavy, just like me!"
+Wolfgang.SDF_AXE = "Strong axe for strong Wolfgang!"
+
+Wolfgang.SDF_THROWING_DAGGERS = "Looks more like a toy. Ha!"
+--Wolfgang.SDF_CROSSBOW = "Rapid firing mechanism."
+--Wolfgang.SDF_CROSSBOW_BOLTS = "Honed tipped!"
+--Wolfgang.SDF_LONGBOW = "Peculiarly large bow."
+--Wolfgang.SDF_STANDARD_ARROWS = "Sharp tipped!"
+--Wolfgang.SDF_FLAMING_LONGBOW = "Flaky ash coated bow."
+--Wolfgang.SDF_FLAMING_ARROWS = "Heated tipped!"
+--Wolfgang.SDF_MAGIC_LONGBOW = "Erratic fungus ridden bow."
+--Wolfgang.SDF_MAGICAL_ARROWS = "Toxic tipped!"
+--Wolfgang.SDF_SPEAR = "Wrappings for other spears"
+--Wolfgang.SDF_SPEARS = "An over sized javelin."
+--Wolfgang.SDF_LIGHTNING_GAUNTLET = "Never strike in the same place twice!"
+--Wolfgang.SDF_LIGHTNING = "Zap zap!"
+--Wolfgang.SDF_GOODLIGHTNING = "I am not sure about this... odd feeling."
+--Wolfgang.SDF_CHICKEN_DRUMSTICK = "...five second rule?"
+
+--Wolfgang.SDF_COPPER_SHIELD = "Better than no protecton!"
+--Wolfgang.SDF_SILVER_SHIELD = "Easy wielding argent shield."
+--Wolfgang.SDF_GOLD_SHIELD = "Glorious shield that can take on a siege!"
+
+Wolfgang.SDF_VICTORIAN_SUIT = "Too fancy for Wolfgang!"
+Wolfgang.SDF_GOLD_ARMOR = "Can't fit, this armor is too small!"
+Wolfgang.SDF_DRAGON_POTION = "Seems to contain dragons breath... Not drinking. Nope."
+Wolfgang.SDF_DRAGON_POTION_EMPTY = "Dry... All gone."
+Wolfgang.SDF_DRAGON_POTION_SKULLCAP = "I don't even..."
+
+------------------------------------------
+--Wendy.SDF_HELMET = "I am sure the owner survived..."
+--Wendy.SDF_BOOK_OF_GOLLOWMERE = "Infomation gathered on all things Gallowmere!"
+--Wendy.SDF_CHALICE_HALL_OF_HEROES = "A massive Goblet floating on a table."
+--Wendy.SDF_CHALICE_RUNESTONE = "A large stone slab engraved with a cup."
+--Wendy.SDF_CHALICE_ALTAR = "A ghastly floating cup!"
+--Wendy.SDF_CHALICE_OF_SOULS = "Pretty fancy drinking cup."
+--Wendy.SDF_SOUL_HELMET = "Small murmurs can be heard coming from this."
+--Wendy.SDF_WITCH_TALISMAN = "Yuck... covered in pumpkin, mushrooms and... amber?"
+--Wendy.SDF_CHEST_RUNESTONE = "Odd looking chest..."
+--Wendy.SDF_CHEST_WOODEN = "Fragile wooden chest with Spikes."
+--Wendy.SDF_CHEST_SKULL = "An uneasy looking chest with a crest."
+--Wendy.SDF_STATUE = "Desecrated statue... Only the base remains."
+--Wendy.SDF_WALL_WOOD = "It won't catch flame... fireproof wood?!"
+--Wendy.SDF_WALL_STONE = "This stone will not be chipped!"
+--Wendy.SDF_INFORMATION_GARGOYLE = "Seems like it wishes to talk, but won't say a word to me."
+--Wendy.SDF_MERCHANT_GARGOYLE = "Takes gold and gives items, where does it store it all?"
+--Wendy.SDF_SHOP_GARGOYLE = "A smaller gold hungry wall plaque."
+--Wendy.SDF_GALLOWMERE_KNIGHT = "A faintly glowing skeleton knight."
+--Wendy.SDF_KING_PEREGRINS_CROWN = "A crown that can't be worn... what a shame."
+
+--Wendy.SDF_HEALTHFOUNTAIN = "Strange fluid coming from the ground!"
+--Wendy.SDF_LIFEBOTTLE = "Not sure what that fluid inside is..."
+--Wendy.SDF_ENERGYVIAL = "I will not taste this strange liquid."
+
+Wendy.SDF_SMALL_SWORD = "Short blade but deadly enough."
+Wendy.SDF_BROAD_SWORD = "The heavier blade suitable for larger massacre."
+Wendy.SDF_ENCHANTED_SWORD = "The heavier blade suitable for larger massacre."
+Wendy.SDF_MAGIC_SWORD = "This weapon is filled with magic."
+--Wendy.SDF_CLUB = "Useful for bashing and exploring."
+Wendy.SDF_HAMMER = "It is easy to kill someone with such a hammer."
+Wendy.SDF_AXE = "Great axe to inflict deep wounds."
+
+Wendy.SDF_THROWING_DAGGERS = "Sharp and inconspicuous tool for carrying death."
+--Wendy.SDF_CROSSBOW = "Rapid firing mechanism."
+--Wendy.SDF_CROSSBOW_BOLTS = "Honed tipped!"
+--Wendy.SDF_LONGBOW = "Peculiarly large bow."
+--Wendy.SDF_STANDARD_ARROWS = "Sharp tipped!"
+--Wendy.SDF_FLAMING_LONGBOW = "Flaky ash coated bow."
+--Wendy.SDF_FLAMING_ARROWS = "Heated tipped!"
+--Wendy.SDF_MAGIC_LONGBOW = "Erratic fungus ridden bow."
+--Wendy.SDF_MAGICAL_ARROWS = "Toxic tipped!"
+--Wendy.SDF_SPEAR = "Wrappings for other spears"
+--Wendy.SDF_SPEARS = "An over sized javelin."
+--Wendy.SDF_LIGHTNING_GAUNTLET = "Never strike in the same place twice!"
+--Wendy.SDF_LIGHTNING = "Zap zap!"
+--Wendy.SDF_GOODLIGHTNING = "I am not sure about this... odd feeling."
+--Wendy.SDF_CHICKEN_DRUMSTICK = "...five second rule?"
+
+--Wendy.SDF_COPPER_SHIELD = "Better than no protecton!"
+--Wendy.SDF_SILVER_SHIELD = "Easy wielding argent shield."
+--Wendy.SDF_GOLD_SHIELD = "Glorious shield that can take on a siege!"
+
+Wendy.SDF_VICTORIAN_SUIT = "I doubt that this clothing was appropriate for me."
+Wendy.SDF_GOLD_ARMOR = "I don't like the energy of the object."
+Wendy.SDF_DRAGON_POTION = "Seems to contain dragons breath... Not drinking. Nope."
+Wendy.SDF_DRAGON_POTION_EMPTY = "Dry... All gone."
+Wendy.SDF_DRAGON_POTION_SKULLCAP = "I don't even..."
+
+------------------------------------------
+--WX78.SDF_HELMET = "I am sure the owner survived..."
+--WX78.SDF_BOOK_OF_GOLLOWMERE = "Infomation gathered on all things Gallowmere!"
+--WX78.SDF_CHALICE_HALL_OF_HEROES = "A massive Goblet floating on a table."
+--WX78.SDF_CHALICE_RUNESTONE = "A large stone slab engraved with a cup."
+--WX78.SDF_CHALICE_ALTAR = "A ghastly floating cup!"
+--WX78.SDF_CHALICE_OF_SOULS = "Pretty fancy drinking cup."
+--WX78.SDF_SOUL_HELMET = "Small murmurs can be heard coming from this."
+--WX78.SDF_WITCH_TALISMAN = "Yuck... covered in pumpkin, mushrooms and... amber?"
+--WX78.SDF_CHEST_RUNESTONE = "Odd looking chest..."
+--WX78.SDF_CHEST_WOODEN = "Fragile wooden chest with Spikes."
+--WX78.SDF_CHEST_SKULL = "An uneasy looking chest with a crest."
+--WX78.SDF_STATUE = "Desecrated statue... Only the base remains."
+--WX78.SDF_WALL_WOOD = "It won't catch flame... fireproof wood?!"
+--WX78.SDF_WALL_STONE = "This stone will not be chipped!"
+--WX78.SDF_INFORMATION_GARGOYLE = "Seems like it wishes to talk, but won't say a word to me."
+--WX78.SDF_MERCHANT_GARGOYLE = "Takes gold and gives items, where does it store it all?"
+--WX78.SDF_SHOP_GARGOYLE = "A smaller gold hungry wall plaque."
+--WX78.SDF_GALLOWMERE_KNIGHT = "A faintly glowing skeleton knight."
+--WX78.SDF_KING_PEREGRINS_CROWN = "A crown that can't be worn... what a shame."
+
+--WX78.SDF_HEALTHFOUNTAIN = "Strange fluid coming from the ground!"
+--WX78.SDF_LIFEBOTTLE = "Not sure what that fluid inside is..."
+--WX78.SDF_ENERGYVIAL = "I will not taste this strange liquid."
+
+WX78.SDF_SMALL_SWORD = "WEAPON GOOD FOR MODERATE BATTLES"
+WX78.SDF_BROAD_SWORD = "LONGER SWORD VERSION"
+WX78.SDF_ENCHANTED_SWORD = "LONGER SWORD VERSION"
+WX78.SDF_MAGIC_SWORD = "POWERFUL SWORD. MAGIC DETECTED!"
+--WX78.SDF_CLUB = "Useful for bashing and exploring."
+WX78.SDF_HAMMER = "GREAT DECONSTRUCTION"
+WX78.SDF_AXE = "STRONG CHOPPING TOOL"
+
+WX78.THROWING_DAGGER = "DEADLY PROJECTILE"
+--WX78.SDF_CROSSBOW = "Rapid firing mechanism."
+--WX78.SDF_CROSSBOW_BOLTS = "Honed tipped!"
+--WX78.SDF_LONGBOW = "Peculiarly large bow."
+--WX78.SDF_STANDARD_ARROWS = "Sharp tipped!"
+--WX78.SDF_FLAMING_LONGBOW = "Flaky ash coated bow."
+--WX78.SDF_FLAMING_ARROWS = "Heated tipped!"
+--WX78.SDF_MAGIC_LONGBOW = "Erratic fungus ridden bow."
+--WX78.SDF_MAGICAL_ARROWS = "Toxic tipped!"
+--WX78.SDF_SPEAR = "Wrappings for other spears"
+--WX78.SDF_SPEARS = "An over sized javelin."
+--WX78.SDF_LIGHTNING_GAUNTLET = "Never strike in the same place twice!"
+--WX78.SDF_LIGHTNING = "Zap zap!"
+--WX78.SDF_GOODLIGHTNING = "I am not sure about this... odd feeling."
+--WX78.SDF_CHICKEN_DRUMSTICK = "...five second rule?"
+
+--WX78.SDF_COPPER_SHIELD = "Better than no protecton!"
+--WX78.SDF_SILVER_SHIELD = "Easy wielding argent shield."
+--WX78.SDF_GOLD_SHIELD = "Glorious shield that can take on a siege!"
+
+WX78.SDF_VICTORIAN_SUIT = "INADEQUATE CLOTHES PARAMETERS"
+WX78.SDF_GOLD_ARMOR = "INADEQUATE ARMOR PARAMETERS"
+WX78.SDF_DRAGON_POTION = "Seems to contain dragons breath... Not drinking. Nope."
+WX78.SDF_DRAGON_POTION_EMPTY = "Dry... All gone."
+WX78.SDF_DRAGON_POTION_SKULLCAP = "I don't even..."
+
+------------------------------------------
+--Wickerbottom.SDF_HELMET = "I am sure the owner survived..."
+--Wickerbottom.SDF_BOOK_OF_GOLLOWMERE = "Infomation gathered on all things Gallowmere!"
+--Wickerbottom.SDF_CHALICE_HALL_OF_HEROES = "A massive Goblet floating on a table."
+--Wickerbottom.SDF_CHALICE_RUNESTONE = "A large stone slab engraved with a cup."
+--Wickerbottom.SDF_CHALICE_ALTAR = "A ghastly floating cup!"
+--Wickerbottom.SDF_CHALICE_OF_SOULS = "Pretty fancy drinking cup."
+--Wickerbottom.SDF_SOUL_HELMET = "Small murmurs can be heard coming from this."
+--Wickerbottom.SDF_WITCH_TALISMAN = "Yuck... covered in pumpkin, mushrooms and... amber?"
+--Wickerbottom.SDF_CHEST_RUNESTONE = "Odd looking chest..."
+--Wickerbottom.SDF_CHEST_WOODEN = "Fragile wooden chest with Spikes."
+--Wickerbottom.SDF_CHEST_SKULL = "An uneasy looking chest with a crest."
+--Wickerbottom.SDF_STATUE = "Desecrated statue... Only the base remains."
+--Wickerbottom.SDF_WALL_WOOD = "It won't catch flame... fireproof wood?!"
+--Wickerbottom.SDF_WALL_STONE = "This stone will not be chipped!"
+--Wickerbottom.SDF_INFORMATION_GARGOYLE = "Seems like it wishes to talk, but won't say a word to me."
+--Wickerbottom.SDF_MERCHANT_GARGOYLE = "Takes gold and gives items, where does it store it all?"
+--Wickerbottom.SDF_SHOP_GARGOYLE = "A smaller gold hungry wall plaque."
+--Wickerbottom.SDF_GALLOWMERE_KNIGHT = "A faintly glowing skeleton knight."
+--Wickerbottom.SDF_KING_PEREGRINS_CROWN = "A crown that can't be worn... what a shame."
+
+--Wickerbottom.SDF_HEALTHFOUNTAIN = "Strange fluid coming from the ground!"
+--Wickerbottom.SDF_LIFEBOTTLE = "Not sure what that fluid inside is..."
+--Wickerbottom.SDF_ENERGYVIAL = "I will not taste this strange liquid."
+
+Wickerbottom.SDF_SMALL_SWORD = "It's short but it can deal a lot of damage."
+Wickerbottom.SDF_BROAD_SWORD = "Such a blade could determine the fate."
+Wickerbottom.SDF_ENCHANTED_SWORD = "Such a blade could determine the fate."
+Wickerbottom.SDF_MAGIC_SWORD = "What could be better than great sword filled with magic?"
+--Wickerbottom.SDF_CLUB = "Useful for bashing and exploring."
+Wickerbottom.SDF_HAMMER = "This weapon has great potential."
+Wickerbottom.SDF_AXE = "I can chop with this. Also it's a good weapon."
+
+Wickerbottom.SDF_THROWING_DAGGERS = "It's wise to attack from a distance."
+--Wickerbottom.SDF_CROSSBOW = "Rapid firing mechanism."
+--Wickerbottom.SDF_CROSSBOW_BOLTS = "Honed tipped!"
+--Wickerbottom.SDF_LONGBOW = "Peculiarly large bow."
+--Wickerbottom.SDF_STANDARD_ARROWS = "Sharp tipped!"
+--Wickerbottom.SDF_FLAMING_LONGBOW = "Flaky ash coated bow."
+--Wickerbottom.SDF_FLAMING_ARROWS = "Heated tipped!"
+--Wickerbottom.SDF_MAGIC_LONGBOW = "Erratic fungus ridden bow."
+--Wickerbottom.SDF_MAGICAL_ARROWS = "Toxic tipped!"
+--Wickerbottom.SDF_SPEAR = "Wrappings for other spears"
+--Wickerbottom.SDF_SPEARS = "An over sized javelin."
+--Wickerbottom.SDF_LIGHTNING_GAUNTLET = "Never strike in the same place twice!"
+--Wickerbottom.SDF_LIGHTNING = "Zap zap!"
+--Wickerbottom.SDF_GOODLIGHTNING = "I am not sure about this... odd feeling."
+--Wickerbottom.SDF_CHICKEN_DRUMSTICK = "...five second rule?"
+
+--Wickerbottom.SDF_COPPER_SHIELD = "Better than no protecton!"
+--Wickerbottom.SDF_SILVER_SHIELD = "Easy wielding argent shield."
+--Wickerbottom.SDF_GOLD_SHIELD = "Glorious shield that can take on a siege!"
+
+Wickerbottom.SDF_VICTORIAN_SUIT = "Such an old suit should be in a museum."
+Wickerbottom.SDF_GOLD_ARMOR = "Such an old item should be in a museum."
+Wickerbottom.SDF_DRAGON_POTION = "Seems to contain dragons breath... Not drinking. Nope."
+Wickerbottom.SDF_DRAGON_POTION_EMPTY = "Dry... All gone."
+Wickerbottom.SDF_DRAGON_POTION_SKULLCAP = "I don't even..."
+
+------------------------------------------
+--Woodie.SDF_HELMET = "I am sure the owner survived..."
+--Woodie.SDF_BOOK_OF_GOLLOWMERE = "Infomation gathered on all things Gallowmere!"
+--Woodie.SDF_CHALICE_HALL_OF_HEROES = "A massive Goblet floating on a table."
+--Woodie.SDF_CHALICE_RUNESTONE = "A large stone slab engraved with a cup."
+--Woodie.SDF_CHALICE_ALTAR = "A ghastly floating cup!"
+--Woodie.SDF_CHALICE_OF_SOULS = "Pretty fancy drinking cup."
+--Woodie.SDF_SOUL_HELMET = "Small murmurs can be heard coming from this."
+--Woodie.SDF_WITCH_TALISMAN = "Yuck... covered in pumpkin, mushrooms and... amber?"
+--Woodie.SDF_CHEST_RUNESTONE = "Odd looking chest..."
+--Woodie.SDF_CHEST_WOODEN = "Fragile wooden chest with Spikes."
+--Woodie.SDF_CHEST_SKULL = "An uneasy looking chest with a crest."
+--Woodie.SDF_STATUE = "Desecrated statue... Only the base remains."
+--Woodie.SDF_WALL_WOOD = "It won't catch flame... fireproof wood?!"
+--Woodie.SDF_WALL_STONE = "This stone will not be chipped!"
+--Woodie.SDF_INFORMATION_GARGOYLE = "Seems like it wishes to talk, but won't say a word to me."
+--Woodie.SDF_MERCHANT_GARGOYLE = "Takes gold and gives items, where does it store it all?"
+--Woodie.SDF_SHOP_GARGOYLE = "A smaller gold hungry wall plaque."
+--Woodie.SDF_GALLOWMERE_KNIGHT = "A faintly glowing skeleton knight."
+--Woodie.SDF_KING_PEREGRINS_CROWN = "A crown that can't be worn... what a shame."
+
+--Woodie.SDF_HEALTHFOUNTAIN = "Strange fluid coming from the ground!"
+--Woodie.SDF_LIFEBOTTLE = "Not sure what that fluid inside is..."
+--Woodie.SDF_ENERGYVIAL = "I will not taste this strange liquid."
+
+Woodie.SDF_SMALL_SWORD = "Short gladiolus, should come in handy."
+Woodie.SDF_BROAD_SWORD = "Now that's a sword!"
+Woodie.SDF_ENCHANTED_SWORD = "Now that's a sword!"
+Woodie.SDF_MAGIC_SWORD = "Blue sword that glows?"
+--Woodie.SDF_CLUB = "Useful for bashing and exploring."
+Woodie.SDF_HAMMER = "Not that good as an axe of course."
+Woodie.SDF_AXE = "Lucy shouldn't be offended if I'll use it."
+
+Woodie.SDF_THROWING_DAGGERS = "Small knives for throwing."
+--Woodie.SDF_CROSSBOW = "Rapid firing mechanism."
+--Woodie.SDF_CROSSBOW_BOLTS = "Honed tipped!"
+--Woodie.SDF_LONGBOW = "Peculiarly large bow."
+--Woodie.SDF_STANDARD_ARROWS = "Sharp tipped!"
+--Woodie.SDF_FLAMING_LONGBOW = "Flaky ash coated bow."
+--Woodie.SDF_FLAMING_ARROWS = "Heated tipped!"
+--Woodie.SDF_MAGIC_LONGBOW = "Erratic fungus ridden bow."
+--Woodie.SDF_MAGICAL_ARROWS = "Toxic tipped!"
+--Woodie.SDF_SPEAR = "Wrappings for other spears"
+--Woodie.SDF_SPEARS = "An over sized javelin."
+--Woodie.SDF_LIGHTNING_GAUNTLET = "Never strike in the same place twice!"
+--Woodie.SDF_LIGHTNING = "Zap zap!"
+--Woodie.SDF_GOODLIGHTNING = "I am not sure about this... odd feeling."
+--Woodie.SDF_CHICKEN_DRUMSTICK = "...five second rule?"
+
+--Woodie.SDF_COPPER_SHIELD = "Better than no protecton!"
+--Woodie.SDF_SILVER_SHIELD = "Easy wielding argent shield."
+--Woodie.SDF_GOLD_SHIELD = "Glorious shield that can take on a siege!"
+
+Woodie.SDF_VICTORIAN_SUIT = "My shirt is prettier!"
+Woodie.SDF_GOLD_ARMOR = "Very uncomfortable armor."
+Woodie.SDF_DRAGON_POTION = "Seems to contain dragons breath... Not drinking. Nope."
+Woodie.SDF_DRAGON_POTION_EMPTY = "Dry... All gone."
+Woodie.SDF_DRAGON_POTION_SKULLCAP = "I don't even..."
+
+------------------------------------------
+--Maxwell.SDF_HELMET = "I am sure the owner survived..."
+--Maxwell.SDF_BOOK_OF_GOLLOWMERE = "Infomation gathered on all things Gallowmere!"
+--Maxwell.SDF_CHALICE_HALL_OF_HEROES = "A massive Goblet floating on a table."
+--Maxwell.SDF_CHALICE_RUNESTONE = "A large stone slab engraved with a cup."
+--Maxwell.SDF_CHALICE_ALTAR = "A ghastly floating cup!"
+--Maxwell.SDF_CHALICE_OF_SOULS = "Pretty fancy drinking cup."
+--Maxwell.SDF_SOUL_HELMET = "Small murmurs can be heard coming from this."
+--Maxwell.SDF_WITCH_TALISMAN = "Yuck... covered in pumpkin, mushrooms and... amber?"
+--Maxwell.SDF_CHEST_RUNESTONE = "Odd looking chest..."
+--Maxwell.SDF_CHEST_WOODEN = "Fragile wooden chest with Spikes."
+--Maxwell.SDF_CHEST_SKULL = "An uneasy looking chest with a crest."
+--Maxwell.SDF_STATUE = "Desecrated statue... Only the base remains."
+--Maxwell.SDF_WALL_WOOD = "It won't catch flame... fireproof wood?!"
+--Maxwell.SDF_WALL_STONE = "This stone will not be chipped!"
+--Maxwell.SDF_INFORMATION_GARGOYLE = "Seems like it wishes to talk, but won't say a word to me."
+--Maxwell.SDF_MERCHANT_GARGOYLE = "Takes gold and gives items, where does it store it all?"
+--Maxwell.SDF_SHOP_GARGOYLE = "A smaller gold hungry wall plaque."
+--Maxwell.SDF_GALLOWMERE_KNIGHT = "A faintly glowing skeleton knight."
+--Maxwell.SDF_KING_PEREGRINS_CROWN = "A crown that can't be worn... what a shame."
+
+--Maxwell.SDF_HEALTHFOUNTAIN = "Strange fluid coming from the ground!"
+--Maxwell.SDF_LIFEBOTTLE = "Not sure what that fluid inside is..."
+--Maxwell.SDF_ENERGYVIAL = "I will not taste this strange liquid."
+
+Maxwell.SDF_SMALL_SWORD = "I prefer a more noble sword."
+Maxwell.SDF_BROAD_SWORD = "With this blade I can have more fun."
+Maxwell.SDF_ENCHANTED_SWORD = "With this blade I can have more fun."
+Maxwell.SDF_MAGIC_SWORD = "Long sword upgraded with magic. Nice."
+--Maxwell.SDF_CLUB = "Useful for bashing and exploring."
+Maxwell.SDF_HAMMER = "I can destroy others work using it."
+Maxwell.SDF_AXE = "Nice axe. I should use it."
+
+Maxwell.SDF_THROWING_DAGGERS = "I can hurt others from a distance."
+--Maxwell.SDF_CROSSBOW = "Rapid firing mechanism."
+--Maxwell.SDF_CROSSBOW_BOLTS = "Honed tipped!"
+--Maxwell.SDF_LONGBOW = "Peculiarly large bow."
+--Maxwell.SDF_STANDARD_ARROWS = "Sharp tipped!"
+--Maxwell.SDF_FLAMING_LONGBOW = "Flaky ash coated bow."
+--Maxwell.SDF_FLAMING_ARROWS = "Heated tipped!"
+--Maxwell.SDF_MAGIC_LONGBOW = "Erratic fungus ridden bow."
+--Maxwell.SDF_MAGICAL_ARROWS = "Toxic tipped!"
+--Maxwell.SDF_SPEAR = "Wrappings for other spears"
+--Maxwell.SDF_SPEARS = "An over sized javelin."
+--Maxwell.SDF_LIGHTNING_GAUNTLET = "Never strike in the same place twice!"
+--Maxwell.SDF_LIGHTNING = "Zap zap!"
+--Maxwell.SDF_GOODLIGHTNING = "I am not sure about this... odd feeling."
+--Maxwell.SDF_CHICKEN_DRUMSTICK = "...five second rule?"
+
+--Maxwell.SDF_COPPER_SHIELD = "Better than no protecton!"
+--Maxwell.SDF_SILVER_SHIELD = "Easy wielding argent shield."
+--Maxwell.SDF_GOLD_SHIELD = "Glorious shield that can take on a siege!"
+
+Maxwell.SDF_VICTORIAN_SUIT = "Now that's a musty suit!"
+Maxwell.SDF_GOLD_ARMOR = "This armor is terribly old-fashioned."
+Maxwell.SDF_DRAGON_POTION = "Seems to contain dragons breath... Not drinking. Nope."
+Maxwell.SDF_DRAGON_POTION_EMPTY = "Dry... All gone."
+Maxwell.SDF_DRAGON_POTION_SKULLCAP = "I don't even..."
+
+------------------------------------------
+--Wigfrid.SDF_HELMET = "I am sure the owner survived..."
+--Wigfrid.SDF_BOOK_OF_GOLLOWMERE = "Infomation gathered on all things Gallowmere!"
+--Wigfrid.SDF_CHALICE_HALL_OF_HEROES = "A massive Goblet floating on a table."
+--Wigfrid.SDF_CHALICE_RUNESTONE = "A large stone slab engraved with a cup."
+--Wigfrid.SDF_CHALICE_ALTAR = "A ghastly floating cup!"
+--Wigfrid.SDF_CHALICE_OF_SOULS = "Pretty fancy drinking cup."
+--Wigfrid.SDF_SOUL_HELMET = "Small murmurs can be heard coming from this."
+--Wigfrid.SDF_WITCH_TALISMAN = "Yuck... covered in pumpkin, mushrooms and... amber?"
+--Wigfrid.SDF_CHEST_RUNESTONE = "Odd looking chest..."
+--Wigfrid.SDF_CHEST_WOODEN = "Fragile wooden chest with Spikes."
+--Wigfrid.SDF_CHEST_SKULL = "An uneasy looking chest with a crest."
+--Wigfrid.SDF_STATUE = "Desecrated statue... Only the base remains."
+--Wigfrid.SDF_WALL_WOOD = "It won't catch flame... fireproof wood?!"
+--Wigfrid.SDF_WALL_STONE = "This stone will not be chipped!"
+--Wigfrid.SDF_INFORMATION_GARGOYLE = "Seems like it wishes to talk, but won't say a word to me."
+--Wigfrid.SDF_MERCHANT_GARGOYLE = "Takes gold and gives items, where does it store it all?"
+--Wigfrid.SDF_SHOP_GARGOYLE = "A smaller gold hungry wall plaque."
+--Wigfrid.SDF_GALLOWMERE_KNIGHT = "A faintly glowing skeleton knight."
+--Wigfrid.SDF_KING_PEREGRINS_CROWN = "A crown that can't be worn... what a shame."
+
+--Wigfrid.SDF_HEALTHFOUNTAIN = "Strange fluid coming from the ground!"
+--Wigfrid.SDF_LIFEBOTTLE = "Not sure what that fluid inside is..."
+--Wigfrid.SDF_ENERGYVIAL = "I will not taste this strange liquid."
+
+Wigfrid.SDF_SMALL_SWORD = "It looks more like a toy!"
+Wigfrid.SDF_BROAD_SWORD = "Now I can chop monsters!"
+Wigfrid.SDF_ENCHANTED_SWORD = "Now I can chop monsters!"
+Wigfrid.MAGIC_SWORD = "It's filled with magic, gross!"
+--Wigfrid.SDF_CLUB = "Useful for bashing and exploring."
+Wigfrid.SDF_HAMMER = "This is a heavy battle hammer!"
+Wigfrid.SDF_AXE = "I can slice enemies!"
+
+Wigfrid.SDF_THROWING_DAGGERS = "Too small for a real fight!"
+--Wigfrid.SDF_CROSSBOW = "Rapid firing mechanism."
+--Wigfrid.SDF_CROSSBOW_BOLTS = "Honed tipped!"
+--Wigfrid.SDF_LONGBOW = "Peculiarly large bow."
+--Wigfrid.SDF_STANDARD_ARROWS = "Sharp tipped!"
+--Wigfrid.SDF_FLAMING_LONGBOW = "Flaky ash coated bow."
+--Wigfrid.SDF_FLAMING_ARROWS = "Heated tipped!"
+--Wigfrid.SDF_MAGIC_LONGBOW = "Erratic fungus ridden bow."
+--Wigfrid.SDF_MAGICAL_ARROWS = "Toxic tipped!"
+--Wigfrid.SDF_SPEAR = "Wrappings for other spears"
+--Wigfrid.SDF_SPEARS = "An over sized javelin."
+--Wigfrid.SDF_LIGHTNING_GAUNTLET = "Never strike in the same place twice!"
+--Wigfrid.SDF_LIGHTNING = "Zap zap!"
+--Wigfrid.SDF_GOODLIGHTNING = "I am not sure about this... odd feeling."
+--Wigfrid.SDF_CHICKEN_DRUMSTICK = "...five second rule?"
+
+--Wigfrid.SDF_COPPER_SHIELD = "Better than no protecton!"
+--Wigfrid.SDF_SILVER_SHIELD = "Easy wielding argent shield."
+--Wigfrid.SDF_GOLD_SHIELD = "Glorious shield that can take on a siege!"
+
+Wigfrid.SDF_VICTORIAN_SUIT = "Too elegant. It doesn't fit into the hardships of battle!"
+Wigfrid.SDF_GOLD_ARMOR = "Too fancy for a warrior!"
+Wigfrid.SDF_DRAGON_POTION = "Seems to contain dragons breath... Not drinking. Nope."
+Wigfrid.SDF_DRAGON_POTION_EMPTY = "Dry... All gone."
+Wigfrid.SDF_DRAGON_POTION_SKULLCAP = "I don't even..."
+
+------------------------------------------
+--Webber.SDF_HELMET = "I am sure the owner survived..."
+--Webber.SDF_BOOK_OF_GOLLOWMERE = "Infomation gathered on all things Gallowmere!"
+--Webber.SDF_CHALICE_HALL_OF_HEROES = "A massive Goblet floating on a table."
+--Webber.SDF_CHALICE_RUNESTONE = "A large stone slab engraved with a cup."
+--Webber.SDF_CHALICE_ALTAR = "A ghastly floating cup!"
+--Webber.SDF_CHALICE_OF_SOULS = "Pretty fancy drinking cup."
+--Webber.SDF_SOUL_HELMET = "Small murmurs can be heard coming from this."
+--Webber.SDF_WITCH_TALISMAN = "Yuck... covered in pumpkin, mushrooms and... amber?"
+--Webber.SDF_CHEST_RUNESTONE = "Odd looking chest..."
+--Webber.SDF_CHEST_WOODEN = "Fragile wooden chest with Spikes."
+--Webber.SDF_CHEST_SKULL = "An uneasy looking chest with a crest."
+--Webber.SDF_STATUE = "Desecrated statue... Only the base remains."
+--Webber.SDF_WALL_WOOD = "It won't catch flame... fireproof wood?!"
+--Webber.SDF_WALL_STONE = "This stone will not be chipped!"
+--Webber.SDF_INFORMATION_GARGOYLE = "Seems like it wishes to talk, but won't say a word to me."
+--Webber.SDF_MERCHANT_GARGOYLE = "Takes gold and gives items, where does it store it all?"
+--Webber.SDF_SHOP_GARGOYLE = "A smaller gold hungry wall plaque."
+--Webber.SDF_GALLOWMERE_KNIGHT = "A faintly glowing skeleton knight."
+--Webber.SDF_KING_PEREGRINS_CROWN = "A crown that can't be worn... what a shame."
+
+--Webber.SDF_HEALTHFOUNTAIN = "Strange fluid coming from the ground!"
+--Webber.SDF_LIFEBOTTLE = "Not sure what that fluid inside is..."
+--Webber.SDF_ENERGYVIAL = "I will not taste this strange liquid."
+
+Webber.SDF_SMALL_SWORD = "This sword is small."
+Webber.SDF_BROAD_SWORD = "Long sword can deal more damage."
+Webber.SDF_ENCHANTED_SWORD = "Long sword can deal more damage."
+Webber.MAGIC_SWORD = "Sword with magic!"
+--Webber.SDF_CLUB = "Useful for bashing and exploring."
+Webber.SDF_HAMMER = "We will smash things!"
+Webber.SDF_AXE = "Good weapon for us."
+
+Webber.SDF_THROWING_DAGGERS = "We can hit bugs with that."
+--Webber.SDF_CROSSBOW = "Rapid firing mechanism."
+--Webber.SDF_CROSSBOW_BOLTS = "Honed tipped!"
+--Webber.SDF_LONGBOW = "Peculiarly large bow."
+--Webber.SDF_STANDARD_ARROWS = "Sharp tipped!"
+--Webber.SDF_FLAMING_LONGBOW = "Flaky ash coated bow."
+--Webber.SDF_FLAMING_ARROWS = "Heated tipped!"
+--Webber.SDF_MAGIC_LONGBOW = "Erratic fungus ridden bow."
+--Webber.SDF_MAGICAL_ARROWS = "Toxic tipped!"
+--Webber.SDF_SPEAR = "Wrappings for other spears"
+--Webber.SDF_SPEARS = "An over sized javelin."
+--Webber.SDF_LIGHTNING_GAUNTLET = "Never strike in the same place twice!"
+--Webber.SDF_LIGHTNING = "Zap zap!"
+--Webber.SDF_GOODLIGHTNING = "I am not sure about this... odd feeling."
+--Webber.SDF_CHICKEN_DRUMSTICK = "...five second rule?"
+
+--Webber.SDF_COPPER_SHIELD = "Better than no protecton!"
+--Webber.SDF_SILVER_SHIELD = "Easy wielding argent shield."
+--Webber.SDF_GOLD_SHIELD = "Glorious shield that can take on a siege!"
+
+Webber.SDF_VICTORIAN_SUIT = "We don't like this."
+Webber.SDF_GOLD_ARMOR = "We don't want this. Too shiny."
+Webber.SDF_DRAGON_POTION = "Seems to contain dragons breath... Not drinking. Nope."
+Webber.SDF_DRAGON_POTION_EMPTY = "Dry... All gone."
+Webber.SDF_DRAGON_POTION_SKULLCAP = "I don't even..."
+------------------------------------------
+
+modimport "scripts/speech/english/sdf_othermodquotes.lua"

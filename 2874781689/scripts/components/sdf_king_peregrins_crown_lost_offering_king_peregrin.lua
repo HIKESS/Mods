@@ -1,0 +1,5 @@
+local SDFKing_Peregrins_Crown_Lost_Offering_King_Peregrin = Class(function (self,inst)
+    self.inst=inst
+end)
+
+return SDFKing_Peregrins_Crown_Lost_Offering_King_Peregrin

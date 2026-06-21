@@ -1,0 +1,1751 @@
+-1.0.0 Release-
+Sir Daniel Fortesque has risen again! Happy Anniversary Gallowmere.
+
+
+
+Update: 1.0.1
+-Added Extra Equippment Slot Support.
+-Added In Game Icon to Fate's Arrow Mode.
+-Corrected a Spelling Mistake.
+
+
+
+Update: 1.0.2
+-Few Adjustments to recipe descriptions.
+
+
+
+Update: 1.0.3
+-Fixed 4th Chalice of Souls Reward, Silver Shield crashing game due to mispelling.
+-Thank you (Xsriel) for finding this issue!!
+
+
+
+Update: 1.0.4
+-Added New Medievil Game Mode: Quest Mode *Overworld/Cave Only*
+Chalice Altars now spawn in types of locations based on their ID
+These locations are loosely based on the Chalice locations from Medievil.
+**For now only servers that support Overworld and Caves will this mode function correctly**
+Support for Overworld Only and/or Caves only may come later, if there is a Want for it.
+*Note: Using mods that remove types of "Rooms" from the Game may impact this Mode. Randomized Mode is a better choice.
+
+-Medievil Game Mode: Randomized *Overworld Only, Overworld/Cave, Cave Only*
+Chalice Altars will be randomly placed on the map on the world type of your choice.
+
+-Golden Armor: Max durability lowered from 900 to 780
+
+
+
+Update:1.0.5
+*Added a "Translation Kit" to the mods: scripts>speech folder.
+
+
+
+Update:1.0.6
+*Bug fix: Sir Dan can once again Deploy boats in the water!
+-Thank you (Xsriel) for finding this issue!!
+
+*Added a Tuning.variable to Small Sword Attack Speed. Code cleaning
+
+
+
+Update:1.0.7
+-Bug fix: Boating and other Right Click Functions corrected.
+-Thank you (Xsriel) for finding this issue!!
+
+-Bug fix: Randomized Mode: Fountain of Rejuvenation spawning.
+
+-Changed Throwing Dagger ground animation
+
+-Slightly changed chest opening animation
+-Name Change: Treasure Chest to Runestone Chest
+-New Treasure Chest: Wooden Chest added to world spawning: Contains Club, Throwing Daggers, or Copper Shield. *Sometimes Kul Katura the Serpent Lord. Added later*
+-New Treasure Chest: Skull Chest added to world spawning: Send out a huge shockwave of energy when hit, *Sometimes contains The Serpent of Gallowmere. Added later*
+
+
+
+Update:1.0.8
+-Knight of gallowmere Now glow when newly spawned.
+-Bug Fix: Skull Chest Loot saving
+
+
+
+Update:1.0.9
+-Stacks in Hand: Throwing Daggers and Chicken Drumstick stacks now are all held in players main hand.
+-Thank you (Xsriel) for the feedback!!
+
+-New Animation: Skull Chest expolsion
+-New Sound effect: Skull Chest expolsion
+
+
+
+Update:1.0.10
+-Fixed Chalice Altar 6 spawning. Now spawns closer to the dragonfly.
+-Thank you (Xsriel) for finding this issue!!
+
+
+
+Update:1.0.11
+-Skull Chest: Every 10 days respawn.
+-Weapon tuning:
+-Broad Sword: Attack speed changed to 0.5 from 0.6.
+-Enchanted Sword: Attack speed changed to 0.5 from 0.6.
+-Magic Sword: Attack speed changed to 0.5 from 0.6.
+-Club: Attack speed changed to 0.7 from 0.8.
+--AOE Size: Increased to 2.25 from 1.5.
+-Hammer: Attack speed changed to 0.8 from 1.
+--AOE Size: Increased to 3.25 from 2.75.
+
+
+
+Update:1.0.12
+-Bug fix: Maxwell book spawning
+--Now Only Sir Daniel is able to interact more with the club (enflame) and Lightning Gauntlet (Transfer)
+-Bug Fix: Skull Chest error on Damage Multiplier
+
+
+
+Update:1.1.0
+Jack of the Green Update
+-Jack of the Green and his Maze has been added to Don't Strave Together.
+--Answer his 4 riddles with Sir Daniel and something more, to unlock endless Shadow Riddles.
+
+-Shadow Riddles: 50+ hand drafted riddles for all players to solve.
+--Give the correct item and receive rewards. Answer 4 and get a rare bonus item.
+
+-Tweaks
+-Chalice Altar: Adjusted Chalice of Souls visual to be more easy to see.
+-Shield Block: Shields have a better visual clue when they have blocked.
+
+--Config File updated
+-Added Jack of the Green Enable/Disable
+
+
+
+Update:1.1.5
+Sir Dans Skill Set Update
+-13 Skill traits to learn with inspiration!!
+
+-Sir Daniels Skill Set
+--Skull Tree: Aims to provide upgradable fishing benifits with the help of Morten and socket a new eye.
+
+---Skill: Morten the Earthworm: Allows Morten to be used as Oceanfishing bait.
+----Unlocks by Finding and defeating the Malbatross.
+----Stats: Radius: 3, Range Bonus: +0, Attractivness Idle: 0.2, Attractivness Reel Bonus: +0.2.
+----Style: Special, Effective Time of Day: Day: 1, Dusk: 1, Night: 1
+----Weather Bonus: Normal: 1, Raining: 1, Snowing: 1
+
+---Skill: Wiggle I/II: Upgrades Morten's tackle stats by: Radius: +1/+2 and Range Bonus: +1/+2.
+
+---Skill: Jiggle I/II: Upgrades Morten's tackle stats by: Attractivness Idle: +0.1/+0.2 and Attractivness Reel Bonus: +0.1/+0.2.
+
+---Skill: The Eye of Amon Ra: Gain the ability to socket the Eye of Amon Ra.
+----Unlocks by Finding and defeating the Eye of Terror.
+----Trait: Dealing damage has a 10% chance to expose a foes weakness, next attack deals 20% bonus damage on marked target.
+
+
+--Undeath Tree: Aims to provide bonuses for slaying foes, also sanity and healing bonuses.
+
+---Skill: Rites I/II/III: Honor the fallen!
+----Trait: 1/2/3% chance to ferry a Soul Helmet from a vanquished foes,
+----Epic foes have a 50/75/100% chance dropping a Soul Helmet upon defeat.
+
+---Skill: Culling I/II/III: Better at Soul gathering.
+----Trait: Felled foes have a 5/10/15% chance to grant 30% addition souls.
+
+---Skill: Embalming I/II/III: Allow Energy Vial drops
+----Trait: Slain foes now have a 1/2/3% chance to drop an Energy Vial,
+----Epic foes will always drop 1/2/3 Energy Vials upon defeat.
+
+---Skill: Nerves: Reduce all negative Sanity effects by 50%
+----Unlocks by learning 12 skills. 
+----Unlocks by Finding and defeating the Celestial Champion.
+----Unlocks by having no shadow affinity.
+
+---Skill: Guts: Fountain of Rejuvenation now restores 50% more health.
+----Unlocks by learning 12 skills. 
+----Unlocks by Finding and defeating the Ancient Fuelweaver.
+----Unlocks by having no lunar affinity.
+
+
+--Backbone Tree: Aims to provide a shield ability, bolster defensives and provide new helpful weapons.
+
+---Skill: The Daring Dash: Gain the ability to preform the Daring Dash
+----Unlocks by Finding and defeating the Varg.
+----Traits: Duration: 0.6sec, Hunger Cost: 5,
+----Workable: Chop = 3, Mine = 1.5, Hammer = 0.5, Shield damage taken per work: 25
+----Damage Dealt: 30, Shield damage taken per damage target: Epic: 25, Normal: 10
+
+---Skill: Vigor I/II: Duration of Daring Dash increased by +0.3/+0.6sec.
+----Workable Chop: +1/+2, Workable Mine: +0.25/+0.5, Workable Hammer: +0.25/+0.5.
+
+---Skill: Steadfast I/II: Shield damage reduction increased by 5/10%. Totaling 75/80%.
+----Reduces Shield damage taken per work to 10/5.
+----Reduces Shield damage taken per damage target: Epic: 10/5, Normal: 5/2
+
+---Skill: The Professor's Lab: Gain the ability to access the Professor's Lab
+---Unlocks by Finding and defeating the Toadstool. *Coming Soon*
+----Trait: Create new stronger weapons by researching the power of Chalice of Souls.
+----Chalice of Souls Research: # of Chalice of Souls Required.
+-----#1: Unlock: Cane Stick:
+-----#3: Unlock: Pistol
+-----#6: Unlock: Bomb
+-----#10: Unlock: Fire Crossbow
+-----#15: Unlock: Blunderbuss
+-----#21: Unlock: Gatling Gun
+
+Other Additions:
+-Added Dans favorite food: Pumpkin Pie and Pumpkin Cookie
+--Pumpkin Pie can now be eating by Sir Daniel at any time.
+---Health:40
+---Hunger:60
+---Sanity:15
+---*All values are based on Pumpkin Pie current durability percent. Hunger can't drop below 15 due to favorite food.
+
+-Changes:
+--Souls: Now have a visual effect upon gaining. Epic and Normal mobs have different effects!
+---Now longer can be gained from Soulless kills.
+
+--Shields: Shield damage reduction is 70%, down from 75%.
+
+--Energy Vials: No longer drop from Sir Dans kills, instead must be Enabled with Skill Tree.
+
+--Soul Helmets: No longer drop from Sir Dans kills with Hero of Gallowmere Status, instead must be Enabled with Skill Tree.
+---Can now be used with Merchant or Shop Gargoyle:
+----Greed: Gives 3 gold nuggets.
+
+---Can now be used with Chalice at Hall of Heroes:
+----Save Lost Soul: Gives 5 gold nuggets.
+----Save Lost Soul: With Hero of Gallowmere Status: Spawns a Gallowmere Knight
+
+--Boss Drops Adjustment: 
+---Added: New bosses to the Life Bottle drop system.
+----Armored Bearger, Nightmare Werepig, Crystal Deerclops, Possessed Varg.
+
+---Removed: To better match difficulty
+----Forest Stalker, Cave Stalker, Ewecus
+
+-Oddity Fixes:
+--Dans Helmet: will correctly double incoming damage, not triple the amount.
+--Victorian Suit: Came with a hat by default... weird. removed said hat.
+--Witch Talisman: Now correctly work with Chalice Altars, Sir Dan's Statue, Merchant and Shop Gargoyle, lastly Jack of the Green.
+
+
+
+Update:2.0.0
+Medievil Revamp
+
+-New System: Rune System
+--Collect Runes which are found in many different places.
+--Can be equipped to the "RUNE" Slot for Normal Players or in the Rune Holder for Sir Dan Players.
+--For Sir Dan a "Handy" helper is given, the Rune Holder. Which will keep the ruins safe and freeing up your inventory.
+--Runes: Provide Stacking effects for Sir Dan or Enchanced effect for Normal Players.
+
+--Rune Types: There are 5 Runes in the game. Time, Moon, Earth, Star, and Chaos.
+---Time Rune: "Took Time to forge!"
+---Passive Trait: Chance to Dodge an Attack by 6%
+----Enhanced Version: Chance to Dodge an Attack by 12%
+---Active Ability: When charged at a Chalice of Souls Altar, can teleport Sir Dan back to the Hall of Heroes.
+----When used in the caves, will teleport the player to the nearest Cave Exit, and be given another charge for the Overworld Travels.
+---Unlocked: Undeath Skill: Time Dilation Runesmith.
+---Found: Hall of Heroes Time Rune
+---{Code:} sdf_time_rune
+
+---Moon Rune: "Forged with a hint of Moonshine!"
+---Passive Trait: Deal 6 Planar Damage back at attackers.
+----Enhanced Version: Deal 12 Planar Damage back at attackers.
+---Found: Lunar Biomes
+---{Code:} sdf_moon_rune
+
+---Earth Rune: "Forged on Earth! Like most Runes..."
+---Passive Trait: Reduces all damage by 10%.
+----Enhanced Version: Reduces all damage by 20%.
+---Found: Caves
+---{Code:} sdf_earth_rune
+
+---Star Rune: "Famous Rune, forged with Star power."
+---Passive Trait: Increases Planar Defense by 4.
+----Enhanced Version: Increases Planar Defense by 8.
+---Found: Moon Rocks
+---{Code:} sdf_star_rune
+
+---Chaos Rune: "Forged with left over Magic!"
+---Passive Trait: Increases all Equipped Rune traits by 50% in the Rune Holder. -SDF Only-
+----Time: 9%, Moon: 9, Earth: 15%, Star: 6
+---Enhanced Version: Grants all base rune traits to when equipped.
+----Time: 6%, Moon: 6, Earth: 10%, Star: 4
+---Found: The Asylum Grounds
+---{Code:} sdf_chaos_rune
+
+
+
+-New Weapons:
+--Woden's Brand: "It's blade seems to thirst for battle."
+---Damage: 66.3
+---Planar Damage: 33.1
+---Attack Speed: 0.7
+---Area Range: 1.6
+---Movement Speed: -10%
+---Durability: 300
+---Parry Arc: 178 deg'
+---Parry Defense: 70%
+---Parry Bonus Damage Scale: 40%
+---Parry Bonus Damage: Min 5, Max 30
+---Parry Bonus Damage Duration: 5 sec
+---Parry Cooldown: 10 sec
+---Parry Cooldown Reduction: 70%
+---Parry Duration: 1 sec
+---Broken Damage: 27.5
+---Broken Planar Damage: 0
+---Broken Attack Speed: 1.4
+---Broken Parry Defense: 35%
+---Repair Percent with: Mosquito Sack: 10%, Telltale Heart: 100%, Visceral Harvester Ichor: 30%
+---Purchase: From Merchant / Shop Gargoyle for 8 Carnival Tokens.
+---Unlocked: Undeath Skill: The Freakshow
+---Sir Dan Only Weapon
+---{Code:} sdf_wodens_brand
+
+
+-New Items:
+--Carnival Token:
+--Found: Normal Bosses: 10% drop rate. Freakshow Bosses: x2 100% drop rate.
+--Usage: Trade x8 for the Woden's Brand from the Merchant or Shop Gargoyle.
+--Stack Size: 60
+--Code: sdf_carnival_token
+
+
+--New Skill Set Skills
+---Skull:
+----Skill: Perception: 10/15% Increase chance to expose a Weakness.
+
+----Skill: Focus: Deal 35/50% Bonus Planar Damage to exposed target.
+
+---Undeath:
+----Skill: Professors Lab:
+-----Unlocks: By learning 12 skills. *Coming Soon*
+-----Trait: Gain access to Professor Hamilton Kift's Lab!
+------Construct new age weapons and monstrous creations, by researching the power of the [Chalice of Souls].
+
+----Skill: The Freakshow
+-----Unlocks: Finding and defeating the Twins of Terror, Crystal Deerclops, Possessed Varg, and Armored Bearger.
+-----Trait: Allows player to buy the [Woden's Brand] for 8 Carnival Tokens from the Merchant and Shop Garoyles.
+
+----Skill: For The Honor Of Gallowmere
+-----Unlocks: Successfully survive for 100 days in [Fate's Arrow] Mode.
+-----Trait: By using [Dan's Helmet], gain the ability to boost the Moral of Others!
+------Allies gain 20% movement speed and attacks heal 0.5 health.
+------Allies take 10% less damage and deal 10% bonus damage to Shadow-aligned creatures.
+-----Duration: 30 seconds
+-----Cooldown: 2 minutes.
+
+----Skill: Time Dilation Runesmith
+-----Unlocks: Successfully Gather 5 Chalice of Souls from Overworld and Caves.
+-----Trait: Visit the [Hall of Heroes] to claim the ever-shifting [Time Rune]!
+------Used to quickly travel back to the [Hall of Heroes] for a short duration.
+------Recharges after collecting a [Chalice of Souls] from an [Chalice of Souls Altar]
+-----Duration: 60 seconds
+
+---Backbone:
+----Skill: Grit: Energize your Bones!
+-----Unlocks: Finding and defeating the Bearger.
+-----Trait: +5 Planar Defense.
+
+
+-Adjustments:
+--Options: Few Removals to make space for new stuff.
+---Adventure Mode: Removed. Spawning was not enjoyable, just messy.
+---Over World / Caves Only Mode: Removed. Adventure Mode is just that much better, to remove this feature so little will use.
+---Jack of the Green: World Generation. Removed.
+----Jack of the Green's Asylum Grounds Island always spawns on the Overworld.
+
+----Jack of the Green Riddle Rarity: Added
+-----Rarity of The Reward of Jack of the Green's 4th Riddle Solved. Rare(default)/Common.
+
+
+--Skill Tree: Few adjustments have been made.
+---Skull: Restructured
+----Skill: Morten the Earthworm: Now a single point Skill.
+-----Unlocks: Finding and defeating the Deerclops.
+-----Stats: Radius: 5 (up from 3), Range Bonus: +2 (up from +0), Attractivness Idle: 0.4 (up from 0.2), Attractivness Reel Bonus: +0.4 (up from +0.2).
+-----Style: Special, Effective Time of Day: Day: 1, Dusk: 1, Night: 1
+-----Weather Bonus: Normal: 1, Raining: 1, Snowing: 1
+
+----Skill: Wiggle I/II: Removed
+
+----Skill: Jiggle I/II: Removed
+
+----Skill: Eye of Amon Ra: Now a branching Skill.
+-----Unlocks: Finding and defeating the Eye of Terror.
+-----Trait: Socket a gift left behind by Princess Kiya, the [Eye of Amon Ra]!
+------Dealing damage has a 5% chance to expose a foes weakness, next attack deals 20% bonus Planar Damage on marked target.
+
+---Undeath: Restructured
+----Skill: Rites I/II/III: Percentage has been increased from 1/2/3%
+-----Trait: 2/4/5% chance to ferry a Soul Helmet from a vanquished foes,
+-----Epic foes have a 50/75/100% chance dropping a Soul Helmet upon defeat.
+
+----Skill: Culling: Now a single point Skill.
+-----Trait: Felled foes have a 10% chance to grant 30% addition souls.
+------Bravery increases from successful kills which restores 1 Sanity.
+
+----Skill: Culling II/III: Removed
+
+---Skill: Embalming I/II/III: Percentage has been increased from 1/2/3%
+----Trait: Slain foes now have a 2/4/5% chance to drop an Energy Vial,
+----Epic foes will always drop 1/2/3 Energy Vials upon defeat.
+
+----Skill: Professors Lab: Moved to the Undeath Tree
+-----Unlocks: By learning 12 skills.
+
+---Backbone: Restructured
+----Skill: Daring Dash: Reduces damage to Sir Dan by 50% while Daring Dashing
+
+----Skill: Professors Lab: Moved to the Undeath Tree
+
+
+--Map Changes
+---Hall of Heroes: Now Shows its location on the Map from spawn for all characters.
+
+---Jack of The Green: Now Shows its location on the Map from spawn for all characters.
+
+--System Changes
+---Souls: Being at Max Souls, grants bonus drop rates by 1.5, down from 2.
+
+---Soul Helmets, Gallowmere Knights, and King Peregrins Crown: Can now be interacted by Sir Dan at start of the game.
+----No longer requires "Hero of Gallowmere" restriction.
+
+----Soul Helmets now drop from Skeletons and Player Skeletons found in the world.
+-----Skeleton: Soul Helmet Drop Rate: 100%
+-----Player Skeleton: Soul Helmet Drop Rate: 50%
+
+--Item Changes
+---Jack of the Green
+----Chaos Rune Fragment: Can now be Tossed.
+
+---Shields:
+----Damage: 10
+----Attack Speed: 0.4
+----Durability: 150
+----Parry Arc: 178 deg'
+----Parry Defense: 70%
+----Parry Bonus Damage Scale: 20%
+----Parry Bonus Damage: Min 5, Max 15
+----Parry Bonus Damage Duration: 5 sec
+----Parry Cooldown: 10 sec
+----Parry Cooldown Reduction: 70%
+----Parry Duration: 1 sec
+----Broken Damage: 5
+----Broken Attack Speed: 0.4
+----Broken Parry Defense: 35%
+----Parry System: Guard at the correct time and direction to ward off all damage to character.
+----Parry Daring Dash Bonus: For Sir Dan, Performing Daring Dash right after to deal bonus damage.
+
+---Damage Changes
+----Dragon Potion:
+-----Damage: 16, down from 32
+-----Planar Damage: 16.
+
+----Enchanted Sword:
+-----Damage: 44.2, down from 66.3.
+-----Planar Damage: 22.1.
+
+----Magic Sword:
+-----Damage: 44.2, down from 66.3.
+-----Planar Damage: 22.1.
+
+----Magic Arrows:
+-----Damage: 34, down from 51.
+-----Planar Damage: 17.
+-----AOE Planar Damage: 17.
+
+----Spear:
+-----Damage: 71.4, up from 57.
+
+----Lightning:
+-----Lightning Damage: 18, down from 22.
+-----Lightning Planar Damage: 6.
+-----Charge Damage: 66, down from 88.
+-----Charge Planar Damage: 22.
+-----Static Planar Damage: 1.
+
+---Armor Changes
+----Victorian Suit: Duration increased to 10 days, from 8 days.
+
+----Golden Armor: Now has 10 Planar Defense.
+
+---Stack Amount Changes
+----Crossbow Bolts: Name changed to Standard Bolts
+----Standard Bolts: Stack size changed to 60, from 40.
+
+----Standard Arrows: Stack size changed to 60, from 40
+----Flaming Arrows: Stack size changed to 40, from 20
+----Magic Arrows: Stack size changed to 20, from 10
+
+----Spear: Stack size changed to 20, from 10
+-----No longer needs Spears as ammo in its container.
+----Spears: Removed from game.
+
+
+--Merchant and Shop Gargoyle:
+---Shop Gargoyle Icon and Grapic has been flipped!
+---Added Stack Amounts per bought by Gold Nugget Value.
+---Price Changes:
+----Throwing Daggers: 2g per 20 stack
+----Standard Bolts: 1g per 30 stack
+----Standard Arrows: 2g per 30 stack
+----Flaming Arrows: 2g per 20 stack
+----Magic Arrows: 2g per 10 stack
+----Spear: 3g per 10 stack
+
+---Shop Gargoyle: Now acts more like a Structure.
+----Use a hammer to destory and gain all materials back.
+
+---Interactions Changes
+----Club: Created a better interaction with Enflame Action.
+----Lightning Gauntlet: Created a better interaction with Transfer Action.
+
+-Oddity Fixes:
+--Reloading as Ghost: Ghost form correctly shows.
+--Fountain of Rejuvanation: No longer heals Dan while in ghost form.
+--Club: No longer lights things on fire when not on fire.....
+
+
+
+Update:2.0.1
+--Fixed Merchant Tags.
+
+
+
+Update:2.0.2 - 2.0.3
+Floats and Sinks Update:
+--Adjustments and Quailty of Life Changes.
+---Floatable Items:
+----Dan's Helmet
+----Time Rune
+----Moon Rune
+----Earth Rune
+----Star Rune
+----Chaos Rune
+----Carvinal Token
+----Chalice of Souls
+----Chicken Drumstick
+----Club
+----Copper Shield
+----Silver Shield
+----Gold Shield
+----Crossbow
+----Dragon Potion
+----Dragon Potion Empty
+----Flaming Arrows
+----Flaming Longbow
+----Gold Armor
+----Shadow Talisman
+----King Peregrins Crown
+----Life Bottle
+----Longbow
+----Magic Longbow
+----Magical Arrows
+----Soul Helmet
+----Spear
+----Standard Arrows
+----Standard Bolts
+----Victorian Suit
+----Witch Talisman
+----Woden's Brand
+
+---Sinks Items:
+----Small Sword
+----Broad Sword
+----Enchanted Sword
+----Magic Sword
+----Hammer
+----Axe
+----Throwing Daggers
+----Lightning
+----Good Lightning
+----Lightning Gauntlet
+----Chaos Rune Fragment
+
+
+Update:2.0.4
+Update Fix
+
+--Changed Health Fountains animation FX to "bile_puddle_water", from "mushroomsprout_glow".
+---Correct crash on load, may create new effect to restore old visuals.
+
+--Scrappy Werepig now drops a Lifebottle upon defeat.
+
+
+
+Update:2.0.5
+Update test
+
+--Changed Throwing Daggers Stack Size to alt hardcode.
+
+
+
+Update:2.0.6
+Update test continued
+
+--Changed Throwing Daggers Stack Size to new alt hardcode.
+
+
+
+Update:2.0.7
+Soul value Fixed!
+
+
+
+Update:2.0.8
+-Throwing Dagger price increased to 3g, from 1g. (laying down Medievil 2 content cost adjustments)
+-Added Great Depths Worm Boss to Life Bottle drop source.
+
+
+
+Update:2.0.9 "Handy when DisArmed"
+-New Abilty: Equip Dan's Arm
+--Press "R" key with no hand item and shield equipped to Disarm Sir Dan.
+--Press "R" while holding Dan's Arm to reArm yourself.
+--Keybind is Configable in Config Settings.
+
+-Dan's Arm:
+--Damage: 10
+--Range Damage: 5
+--Attack Speed: 0.5
+--Durability: Non Breakable
+
+-Weapon Changes:
+--Wodens Brand:
+---Damage: Increased to 66.6 from 66.3
+---Planer Damage: Increased to 33.3 from 33.1
+
+-Oddity Fixes:
+--Skill Tree Backbone: Grit- Now unlocks correctly with Boss Kill.
+--Ranged Weapon Quivers: Container now opens and closes faster.
+
+
+
+Update:3.0.0 "Medievil Refreshed"
+-This update brings many revamps and adjustments to Skils, Weapons, Shields, and Armor and Introduces new items.
+
+--Sir Daniel:
+--Hunger: Changed to 120 from 100.
+--Updated Text art and icons on character pages.
+
+--Skill Tree: Few adjustments have been made.
+---Skull:
+----Skill: Perception: -Changes-
+-----Trait: 10% Increase chance to expose a Weakness.
+
+----Skill: Perception II: -Removed-
+
+----Skill: Focus: -Changes-
+-----Trait: Deal 50% Bonus Planar Damage to exposed target.
+
+----Skill: Focus II: -Removed-
+
+----Skill: Insight: -New-
+-----Trait: Become well-versed! Craft a restored Book of Gallowere early.
+-----Unlocks: By solving 20 Jack of the Green: Book of Gallowmere Riddles and Completely Restore all Entries of the Book of Gallowmere.
+
+---Undeath:
+----Skill: Rites II: -Changes-
+-----Trait: 4% chance to ferry a Soul Helmet from a vanquished foes,
+-----Epic foes have a 100% chance dropping a Soul Helmet upon defeat.
+
+----Skill: Rites III: -Revamp-
+-----Trait: Anubis Stone now Summons a Knight of Gallowmere
+-----Soul Helmet drop passive also stacks with Rites II totaling to 8%.
+
+---Skill: Embalming III: -Revamp-
+----Trait: Goodlightning additionally restores 25% of healing over 10 seconds,
+----Calming effect on Non Epic foes last longer by 10 seconds.
+
+---Skill: For The Honor Of Gallowmere: -Changes-
+----Trait: [Dan's Helmet] Gains the ability to boost 20 Santiy to Others!
+------Allies gain 20% movement speed and attacks heal 0.5 health.
+------Allies take 10% less damage and deal 10% bonus damage to Shadow-aligned creatures.
+
+---Backbone:
+----Skill: Daring Dash: -Changes-
+-----Daring Dash Stun: Successful Dash now disablies target attacks for 3 sec.
+
+----Skill: Vigor: -Name Changed-
+-----Now Skill: Grit
+----Trait: Duration of Daring Dash increased by +0.6sec.
+----Workable Chop: +2, Workable Mine: +0.5, Workable Hammer: +0.5.
+
+----Skill: Vigor II: -Removed-
+
+----Skill: Steadfast: -Revamp-
+----Trait: Increases Shield Protection by 10%.
+----Reduces Shield damage taken per damage target: Epic: 10, Normal: 2
+
+----Skill: Steadfast II: -Removed-
+
+----Skill: Valor: -New-
+-----Trait: Don Super Armour! Claim the Golden Armor from Dan's Statue at the Hall of Heroes early.
+-----Unlocks: By Offering all 20 Chalice of Souls and Earning a place in the Hall of Heroes
+
+----Skill: Grit: -Name Changed-
+-----Now Skill: Energy Bones
+
+
+-Weapon, Shield, Armor Changes:
+--Hammer: -Revamp-
+---Now a 2 handed weapon
+---Ability: Shockwave: Leap into the air and slam the Hammer to foes below creating a Shockwave, leaving a crater stunning and slowing all those inside for 2sec.
+----Shockwave Damage: 60.4
+----Shockwave Stun: Disablies target attacks for 2 sec.
+----Range: 2
+----Aoe Radius: 4.1
+----Cooldown: 10sec
+---Damage: Increased to 46.5 from 42
+---AOE Damage: 9.3
+---AOE Radius: 1.1
+---Attack Speed: Increased to 0.9 from 0.8
+---Sound: New Heavy Swing Sound.
+
+--Club: -Revamp-
+---Now a 2 handed weapon
+---Ability: Enflame: Lit it from other sources of fire or Ignite flammable targets while ablazed.
+----Enflame Fuel to Campfires: 15 secs
+----Wet Protection: 20%
+---Damage: Increased to 46.5 from 42
+---AOE Damage: 9.3
+---AOE Radius: 1.1
+---Durability: Reduced to 75 from 100
+---Sound: New Heavy Swing Sound.
+
+--Dragon Potion: Dragonbreath: -Revamp-
+---Ability: Breathe Fire: Call forth a Firey Breath to burn all targets in its path.
+---Damage: 8
+---Planar Damage: 8
+---Breathe Fire Duration: 5sec
+---Wet Protection: 50%
+
+--Lightning Gauntlet: -Revamp-
+---Perk: Able to equip both Lightning and Goodlightning
+---Melee Mode:
+----Damage: 20
+----Range: 0
+----Attack Speed: 0.8
+----Durability: 400
+
+---Lightning Mode:
+---Ability: Unleash a Charged Overload, electrocuting and slowing all in its area.
+----Damage: 72
+----Planar Damage: 72
+----Range: 12
+----Aoe Radius: 4.1
+----Cooldown: 20 sec
+----Movement Speed Debuff: 70%
+----Movement Speed Debuff Duration: 6 sec
+---Ranged Attack: Send out a lightning wave, that shocks and slows chaining up to 5 targets.
+----Damage: 18 (14.4, 10.8, 7.2, 3.6) lowers per chain
+----Planar Damage: 18 (14.4, 10.8, 7.2, 3.6) lowers per chain
+----Range: 12
+----Attack Speed: 2
+----Movement Speed Debuff: 40%
+----Movement Speed Debuff Duration: 3 sec
+
+---Goodlightning Mode:
+---Ability: Unleash a Charged Overload, healing all Allies in its area. If only Hostile targets, then removes Aggro towards caster for the duration.
+----Heal: 60
+----Sanity Heal: 5
+----Damage to Caster: 60
+----Range: 12
+----Aoe Radius: 4.1
+----Cooldown: 20 sec
+----Aggro Debuff Duration: 60 sec
+---Ranged Heal: Send out a healing wave
+----Heal: 20 (16, 12, 8, 4) lowers per chain
+----Sanity Heal: 1
+----Damage to Caster: 20
+----Range: 12
+----Attack Speed: 2
+----Aggro Debuff Duration: 20 sec
+
+--Transfer Ability: Lightning
+---Lightning Rod:
+----New Lightning Item: 10% Durability
+----Recharge Lightning Item: + 20% Durability
+
+--Transfer Ability: Goodlightning
+---Hall of Heroes Chalice of Souls
+----First Time Goodlightning Item: 100% Durability
+----Recharge Goodlightning Item: + Durability based on Souls consumed.
+
+--Throwing Daggers: -Revamp-
+---Ability: Knife Juggle: Throw multiple empowered throwing daggers at once.
+----Throwing Daggers Thrown: 3
+----Cooldown: 10 sec
+---Extra Trait: Hemorrhage: Target slowly bleeds from a damaged blood vessel.
+----Damage: Throwing Dagger damage over its duration.
+----Duration: 15 sec
+----Tick Rate: 3 sec
+---Damage: 23.8
+
+--Crossbow: -Revamp-
+---Ability: Rapid Fire: Quickly fire repeated bolts at a target. Each bolt is empowered, totaling an extra bolt worth of damage.
+----Bolts Fired: 4
+----Cooldown: 10 sec
+---Extra Trait: Ricochet: During Rapid Fire, hitting a Large or Epic or Structure target, causes the bolt to ricochet to a close by new target.
+----Damage: 50% of Bolt Damage
+----Ricochet Radius: 5.2
+
+--Longbow: -Revamp-
+---Can now use all arrow types
+---Ability: Deadeye: Deal massive damage with a well aimed shot.
+----Damage: 2.2 x Arrow Damage
+----Cooldown: 15 sec
+
+--Flaming Longbow: -Revamp-
+---Can now use all arrow types
+---Ability: Incendiary: Causes an Arrow to explode on contact, setting foes ablazed in the area.
+----Damage: 1.1 x Arrow Damage
+----Aoe Radius: 3.8
+----Cooldown: 15 sec
+
+--Magic Longbow: -Revamp-
+---Can now use all arrow types
+---Ability: Miasma: Causes an Arrow to explode on contact, dealing Planar Damage in the area.
+----Damage: 1.2 x Arrow Damage
+----Aoe Radius: 3.8
+----Cooldown: 15 sec
+
+--Spear: -Revamp-
+---Ability: Sunder Armor: Breaks targets armor for a short amount of time. During which they take extra damage from all sources.
+----Sunder Armor Debuff: 50%
+----Damage: 1.2 x Spear Damage
+----Duration: 30 secs
+----Cooldown: 15 sec
+---Damage: 71.4
+
+--Standard Bolts: -changes-
+--Damage: Decreased to 8.5 from 17
+
+--Standard Arrows: -changes-
+--Damage: 34
+
+--Flaming Arrows: -changes
+--No longer aoe on hit.
+--Damage: 34
+
+--Magic Arrows: -changes-
+--No longer aoe on hit.
+--Damage: 34
+--Planar Damage: 17
+
+--Axe: -changes-
+---Damage: 42
+---Throw Damage: 54.6
+---Attack Speed: Increased to 0.7 from 0.6
+---Throw Usage: Increased to 4 from 3
+---Durability: Increased to 200 from 150
+---Sound: New Light Swing Sound.
+
+--Small Sword: -changes-
+---Animation:
+----Has gained a New Jabbing and Overhead Animation for its attacks.
+---Sound: New Light Swing Sound.
+
+--Broad Sword: -changes-
+---Attack Speed: Increased to 0.6 from 0.5
+---Animation:
+----Has gained a New Sweeping, Jabbing, and Overhead Animation for its attacks.
+---Sound: New Light Swing Sound.
+
+--Enchanted Sword: -changes-
+---Attack Speed: Increased to 0.6 from 0.5
+---Animation:
+----Has gained a New Sweeping, Jabbing, and Overhead Animation for its attacks.
+---Sound: New Heavy Swing Sound.
+
+--Magic Sword: -changes-
+---Attack Speed: Increased to 0.6 from 0.5
+---Animation:
+----Has gained a New Sweeping, Jabbing, and Overhead Animation for its attacks.
+---Sound: New Heavy Swing Sound.
+
+--Woden's Brand: -changes-
+---Attack Speed: Increased to 0.8 from 0.7
+---Parry Stun: Successful Parry now disablies target attacks for 3 sec.
+---Parry Bonus Damage: min 5, max 30. From max 30
+---Parry Duration: Increased to 3sec from 1sec
+---Durability: Reduced to 200 from 300
+---Animation:
+----New Guarding Animation
+----Has gained a New Sweeping Animation and Jabbing Animation for its attack when not broken
+---Sound: New Heavy Swing Sound.
+
+
+--Shields: -Revamp-
+---Now stays equipped in the Shield Slot
+---Only all better interactions with Hand Items
+---Shields can not be used to block with Hand items with special abilities.
+---Parry Cooldown: reduced to 5sec from 10sec
+---Parry Cooldown Reduction: Reduced to 60% from 70%
+---Parry Stun: Successful Parry now disablies target attacks for 3 sec.
+---Parry Bonus Damage: min 1, max 15. From min 5, max 10
+
+--Gold Armor:
+---Sound: New Armor sound when Super Armor is active.
+
+
+-Item Changes:
+--Items with Containers: Added slot icons for easy display.
+
+--Chests now respawn after being opened.
+---Wooden Chest:
+----Respawn: 15 days
+
+---Skull Chest:
+----Respawn: 5 days
+
+---Maze Chest:
+----Respawn: 10 days
+
+-New Items:
+--Book of Gallowmere: "A bestiary for beasts and non-beasts alike."
+---Repair missing pages using Restored Pages.
+---Read Entries: Read to recover Sanity based on the combined progresss of Entries restored.
+----Entry Sanity Regen Amount: 0.01 for every Percent restored.
+----Entry Sanity Regen Tick: Every 10 sec.
+---Recipe: feather pencil x1, papyrus x3, pigskin x1, sanity -20
+
+--Trampled Book of Gallowmere: "This is tear-rible!"
+---Give to Jack of the Green to learn to craft Book of Gallowmere
+---Found: Dropped by Overgrown Rook from Asylum Grounds
+
+--Book of Gallowmere Entries: Inventory
+---Entry to the Book of Gallowmere: Related to Items, weapons, armor, ect.
+---Can share with others.
+
+--Book of Gallowmere Entries: Friendlies
+---Entry to the Book of Gallowmere: Related to Friendly others.
+---Can share with others.
+
+--Book of Gallowmere Entries: Enemies
+---Entry to the Book of Gallowmere: Related to Hostile others.
+---Can share with others.
+
+--Book of Gallowmere Entries: Bosses
+---Entry to the Book of Gallowmere: Related to Strong Hostile others.
+---Can share with others.
+
+--Restored Vellum of the Book of Gallowmere: "Used to Mend a paper cut!"
+---Usaged: To expand an Entry from the Book of Gallowmere by 2
+---Stack Size: 60
+---Found: Solving Jack of the Greens: Book of Gallowmere Riddles.
+
+--Cracked Birchnut: "It's nut worth the hassle..."
+---Edible:
+---Health: 1
+---Sanity: 0
+---Hunger: 9.375
+---Spoilage: 15 days
+
+
+-Creature Changes:
+--Gallowmere Knight: -Changes-
+---Undeath Healing: Healing from Goodlightning and Anubis Stone is double effective!
+
+--Jack of the Green: -Changes-
+---Now unlocks Book of Gallowmere Crafting
+---Removed Shadow Talisman interactions
+---Now also rewards a Book of Gallowmere Restored Vellum for completed riddles.
+
+--Asylum Grounds Keeper: -Changes-
+---Renamed to Mad Monk
+---Health: 300 from 260
+---Max Stun Lock: 6 from 2
+---Weapon: Spade from Shovel
+
+-Oddity Fixes:
+--Dan's Arm: Added support for extra Equipment slot mods.
+--Merchant Gargoyle: Now correctly displays its Tab Icon.
+--Gallowmere Knight:
+---No longer shy with Holding Shield on Server reloads.
+---No longer attacks its leader when attacked.
+--Jack of the Green: Bug fix Now hurts player santiy when given wrong item for riddle, no more crash.
+
+
+Update:3.0.1 Containers and Caves
+--Magic Sword: -Changes-
+---Durability Regen: Increased to 2% every 30sec from 1%
+
+--Magic Longbow: -Changes-
+---Durability Regen: Increased to 2% every 30sec from 1%
+
+-Oddity Fixes:
+--Dragon Potion: Now creates an Empty Dragon Potion upon completion
+--All Container type weapons and items: Back end code changed to prevent crashes with caves while loading.
+
+
+Update:3.0.2 "Quest for the Anubis Stone" Pre-Release
+
+-Item Changes:
+--Shields:
+---Shield are no longer stealable or dropped while being wet or scared.
+
+-Misc:
+--Chalice Altar 19: Now spawns in the Labyrinth
+
+-Oddity Fixes:
+--Fixed Bug: Having more than one shield in inventory when breaking, no longer crashes the game.
+
+
+Update:3.0.3 Quality of Undeath
+
+-Item Changes:
+--Shields:
+---Shields have had their durability doubled.
+---Copper Shield Durability: 300 from 150
+---Silver Shield Durability: 500 from 250
+---Gold Shield Durability: 800 from 400
+
+--Life Bottle:
+---Now glow in the dark!
+
+--Energy Vial:
+---Now glow in the dark!
+
+-Creature Changes:
+--Gallowmere Knight:
+---Will now make a merry crew upon boats! They can hop platforms.
+
+-Adjustments:
+--Witch Talisman:
+---Shop Gargoyle: Offering will recover a lost Dan's Helmet. *While not in Fates Arrow Mode*
+
+--Time Rune Ring:
+---Harnest the power of Time, allows players to revive upon haunt!!
+---Health Penalty: 50%
+---Cooldown Time: 12 days
+
+--Jack of the Green:
+---Clown Face Riddle: Increased the timing of the face spinning, to offset higher ping servers.
+
+-Oddity Fixes:
+--Fixed Bug: 
+
+
+Update:3.0.4 Flooded Oops
+
+-Config Changes:
+--Time Rune Ring: Revival Cooldown *new*
+---Configable: 6,12,24 days
+
+-Creature Changes:
+--Gallowmere Knight:
+---Smarter off and on guard duty!!
+
+-Oddity Fixes:
+--Fixed Bug: Asylum Grounds has been unflooded
+
+
+Update:3.0.5 Key Items and You
+
+-Feature Overhaul: Added Key Items type.
+
+-Oddity Fixes:
+--Fixed Bug: No more important Item duping.
+
+
+Update:4.0.0 "King's Quest: The Anubis Stone"
+
+-Information Overload:
+--Information Garagoyle: Many new Garagoyles have been added to the world. Knowledge is power!
+
+
+-Item Changes:
+--Soul Helmet:
+---Now are placed inside an Anubis Stone first, when held or equipped.
+
+--Energy Vial:
+---Now Drinkable rather than eat!
+
+--Witch Talisman:
+---Infomation Gargoyle (Spawn): Offering will recover a lost Dan's Helmet. *While not in Fates Arrow Mode*
+---Infomation Gargoyle (Hall of Heroes): Offering will recover a lost King Peregrins Crown.
+---Infomation Gargoyle (Haunted Ruins): Offering will recover a lost King Peregrins Crown Lost.
+---Infomation Gargoyle (Shadow Demon Tomb): Offering will recover a lost Shadow Talisman.
+---Infomation Gargoyle (Mullock Chief Memorial): Offering will recover a lost Anubis Stone Part 1.
+---Infomation Gargoyle (Pumpkin Gorge): Offering will recover a lost Anubis Stone Part 2.
+---Infomation Gargoyle (Enchanted Earth): Offering will recover a lost Anubis Stone Part 3.
+---King Peregrin: Offering will recover a lost Anubis Stone Part 4.
+
+
+-New Items:
+--Anubis Stone: "Mighty power of reanimation and healing pulse through its crystalline structure."
+---Ability: Reanimate a fallen Gallowmere Squire, ready to aid in battle for a short time.
+----Reanimate Range: 12
+----Reanimate Energy Usage: 20
+----Reanimate Cooldown: 5 sec
+---Ranged Heal: Nerotic Heal an undeath target
+----Heal: 10
+----Range: 12
+----Energy Usage: 5
+----Damage to Caster: 5 (10 without Energy)
+---Ranged Charge: Nerotic Heal to recharge the Shadow Demon Talisman
+----Recharge: 60 secs
+----Range: 12
+----Energy Usage: 5
+----Damage to Caster: 5 (10 without Energy)
+--Energy Regen: 1 every 6 sec
+--Passive Soul Helmet Drop Chance: 4%
+--Passive Soul Helmet Epic Drop Chance: 25%
+--Soul Helmet Storage: 8
+--Armor Defense: 10%
+--Planer Defense: 2 per Soul Helmet Stored.
+--Max Energy: 100
+--Crafted: Anubis_Stone_Part1 x1, Anubis_Stone_Part2 x1, Anubis_Stone_Part3 x1, Anubis_Stone_Part4 x1
+---{Code:} sdf_anubis_stone
+
+--Anubis Stone Part 1: "Legend tells that if the stone were ever reassembled to its singular form..."
+---Found: Dug from the Mullock Cheif's Memorial in the Grave Yard.
+---{Code:} sdf_anubis_stone_part1
+
+--Anubis Stone Part 2: "Legend tells that if the stone were ever reassembled to its singular form..."
+---Found: Drops off the Pumpkin King
+---{Code:} sdf_anubis_stone_part2
+
+--Anubis Stone Part 3: "Legend tells that if the stone were ever reassembled to its singular form..."
+---Found: Locked inside the Shadow Demons Tomb
+---{Code:} sdf_anubis_stone_part3
+
+--Anubis Stone Part 4: "Legend tells that if the stone were ever reassembled to its singular form..."
+---Found: Given by King Peregrin after returning his lost crown.
+---{Code:} sdf_anubis_stone_part4
+
+--Spade: "A spade... in a cemetery! I sense great logic at work." 
+---Damage: 20.4
+---Attack Speed: 0.7
+---Work Consume: 0.5
+---Durability: 250
+---Found: Rare drop from an Asylum Grounds Keeper and Asylum Grounds.
+---{Code:} sdf_spade
+
+--Gasping Pond Fish: "A lost sole."
+---Spoilage: 1 day
+---Found: Sunken Pond in The Pumpkin Gorge (Savanna).
+---{Code:} sdf_pumpkin_gorge_pondfish
+
+--Asphyxiated Pond Fish: "Cod rest thy sole."
+---Edible:
+----Health: 1
+----Sanity: 5
+----Hunger: 12.5
+---Spoilage: 2 day
+---Found: Murdered Gasping Pond Fish
+---{Code:} sdf_pumpkin_gorge_pondfish_dead
+
+--Smothered Pond Fish: "Carp-e diem!"
+---Edible:
+----Health: 3
+----Sanity: 1
+----Hunger: 12.5
+---Spoilage: 6 day
+---Max Stack Size: 40
+---Found: Cooked Asphyxiated Pond Fish
+---{Code:} sdf_pumpkin_gorge_pondfish_cooked
+
+--Writhing Pumpkin Seeds: "Sowing woe..."
+---Use: Plant to grow a Writhing Pumpkin Plant which bears into a friendly Pumpkin Gourd.
+---Fuel: 45 sec
+---Max Stack Size: 10
+---Found: Rare drop from Pumpkin King and Farmland Debris from The Pumpkin Gorge (Savanna).
+---{Code:} sdf_pumpkin_gourd_seeds
+
+--Unstable Pumpkin Seeds: "Sowing anguish..."
+---Use: Plant to grow a Unstable Pumpkin Plant which bears into a friendly Pumpkin Bomb.
+---Fuel: 45 sec
+---Max Stack Size: 10
+---Found: Rare drop from Pumpkin King and Farmland Debris from The Pumpkin Gorge (Savanna).
+---{Code:} sdf_pumpkin_bomb_seeds
+
+--Skulking Pumpkin Seeds: "Sowing terror..."
+---Use: Plant to grow a Skulking Pumpkin Plant which bears into a friendly Pumpkin Creeper.
+---Fuel: 45 sec
+---Max Stack Size: 10
+---Found: Rare drop from Pumpkin King and Farmland Debris from The Pumpkin Gorge (Savanna).
+---{Code:} sdf_pumpkin_creeper_seeds
+
+--Giants Ocarina: "Said to summon a gentle giant..."
+---Upon Pickup: Summon Asgard, becoming its leader.
+---Use to Command Asgard with context actions.
+----Out of Combat: Teleport Asgard to leaders location.
+-----Cooldown: 10 sec
+----In Combat: Switch Asgard Combat Modes:
+-----Single Target: Deal higher single target damage.
+-----AOE Target: Deal weaker AOE target damage.
+-----Cooldown: 10 sec
+----In Combat: Active Optimize Data: Type_B:
+-----While leader is below 35% health, using Gaint's Ocarina will active a barrier that shields all allies from damage.
+-----Radius: 8
+-----Duration: 15 sec
+-----Cooldown: 5 Min
+---Found: Rare loot from the Chest Kingdom
+---{Code:} sdf_asgard_golem_giants_ocarina
+
+--Optimize Date: Damaged: "Chip off the old block..."
+---Hammer Shockwave: Can be turn into Scrap.
+---Found: 90% chance from Armored Stone Golem and Core Stone Golem
+---Found Rare: 10% drop chance from Asgard.
+---{Code:} sdf_asgard_golem_optimize_data_damaged
+
+--Optimize Data: Type_A: "Label reads [Emergency Mode: Friendly Fire]"
+---Installed Algorithm: After taking 1/3 maxium health in damage, upon entering recovery mode: Summons a friendly Lava Golem.
+---Installed Dropped: 90% Chance to drop from Asgard when installed, else is damaged.
+---Hammer Shockwave: Can be turn into Scrap.
+---Degrades: When wet, high chance to be damaged.
+---Found Rare: 10% drop chance from Armored Stone Golem
+---{Code:} sdf_asgard_golem_optimize_data_type_a
+
+--Optimize Data: Type_C: "Label reads [Emergency Mode: System Recovery]"
+---Installed Algorithm: After taking 1/3 maxium health in damage, upon entering recovery mode: Greatly recovers health.
+---Installed Dropped: 90% Chance to drop from Asgard when installed, else is damaged.
+---Hammer Shockwave: Can be turn into Scrap.
+---Degrades: When wet, high chance to be damaged.
+---Found Rare: 10% drop chance from Core Stone Golem
+---{Code:} sdf_asgard_golem_optimize_data_type_c
+
+--Shadow Artefact: "A handy key to their dank prison."
+---Use: Unlocks The Shadow Demons Tomb in the Enchanted Forest.
+---Sanity Aura Drain: 1
+---Sanity Drain: 1
+---Found: Rare drop from Pumpkin King and Farmland Debris from The Pumpkin Gorge (Savanna).
+---{Code:} sdf_shadow_artefact
+
+--Shadow Talisman: "An dreadful fetish which gives off feelings of doom."
+---Using Necrotic Heal from the Anubis Stone will increase its duration and switch Malevolent State to Benevolent State.
+---While in Pocket
+----Deal 10% more damage to Lunar Aligned foes.
+----Reduce Damage by 10% from Lunar Aligned foes.
+---While Active:
+----Allows vision in the dark.
+----Grants immunity to Charlie.
+---Status: Benevolent
+----Sanity Aura Drain: 1
+----Sanity Drain: 2
+----Sanity Drain While Active: 5
+---Status: Malevolent
+----Sanity Aura Drain: 2
+----Sanity Drain: 4
+----Sanity Drain While Active: 10
+---Found: Shadow Demon Tomb (Enchanted Forest).
+---{Code:} sdf_shadow_talisman
+
+
+-Misc:
+--Chalice Altar 2: Now spawns in The Pumpkin Gorge (Savanna)
+
+-New Misc:
+--Mullock Cheif's Memorial: "By the sandals of the wandering hippy!"
+---Found: Graveyard
+
+--Mullock Cheif's Memorial Grave: "Here lies the famous Mullock Chief..."
+---Loot: Anubis Stone Part 1
+---Respawn: 10 days
+---Found: Graveyard
+
+--The Pumpkin Gorge: "So this is where all those tasty pumpkins come from, They might find you tasty too."
+---Found: Savanna
+
+--Dried Well: "Seems to be bone dry..."
+---Guarded by a dangerous vine.
+---Found: The Pumpkin Gorge (Savanna)
+---{Code:} sdf_pumpkin_gorge_well
+
+--Glowshroom: "A mushroom that helps you see things..."
+---Gives off an erie light.
+---Found: The Pumpkin Gorge (Savanna)
+---{Code:} sdf_pumpkin_gorge_glowshroom1
+---{Code:} sdf_pumpkin_gorge_glowshroom2
+
+--Hanging Vine: "A Grown life vine!"
+---Helpful when climbing
+---Found: The Pumpkin Gorge (Savanna)
+---{Code:} sdf_pumpkin_gorge_well_door_exit
+
+--Sunken Pond: "This basin is well-grounded!"
+---Spawns: Gasping Pond Fish
+---Keeps Gasping Pond Fish alive.
+---Found: The Pumpkin Gorge (Savanna)
+---{Code:} sdf_pumpkin_gorge_pond
+
+--Farmland Debris: "Another one's treasure!"
+---Dig: Find random loots
+----Possibe Loots:
+-----Common: Rot, Twigs, Rocks, Flint, Nitre
+-----Rare: Writhing Pumpkin Seeds, Unstable Pumpkin Seeds, Skulking Pumpkin Seeds
+---Found: The Pumpkin Gorge (Savanna)
+---{Code:} sdf_pumpkin_gorge_farmland_debris
+
+--Stocky Roots: "Parasitic radix..."
+---On Chop: Plant that blocks, which regrows.
+---Regrowth Time: 10 secs
+---Found: The Pumpkin Gorge (Savanna)
+---{Code:} sdf_pumpkin_gorge_roots
+
+--Rasping Vines: "Unyielding foliage!"
+---On Chop: Plant that blocks, which regrows.
+---Regrowth Time: 10 secs
+---Found: The Pumpkin Gorge (Savanna)
+---{Code:} sdf_pumpkin_gorge_bush
+
+--Pumpkin Patch: "The seedy part of town!"
+---Plant which bears into Pumpkins.
+---Growth Time: 4 - 6 Daylight days
+---Grows: Pumpkin
+---Found: The Pumpkin Gorge (Savanna)
+---{Code:} sdf_pumpkin_gorge_creeper
+
+--Pumpkin Plant: "Once good-natured pumpkins..."
+---Plant which bears into smashable fruit.
+---Growth Time: 2.5 - 5 Daylight days
+---Drops: Rot
+---Found: The Pumpkin Gorge (Savanna)
+---{Code:} sdf_pumpkin_gorge_plant
+
+--Writhing Pumpkin Plant: "This patch is looking so gloomy."
+---Plant which bears into a friendly Pumpkin Gourd.
+---Growth Time: 6 - 12 Daylight days
+---Grows from: Writhing Pumpkin Seeds.
+---{Code:} sdf_pumpkin_gourd_plant
+
+--Unstable Pumpkin Plant: "This patch is looking so gloomy."
+---Plant which bears into a friendly Pumpkin Bomb.
+---Growth Time: 4 - 8 Daylight days
+---Grows from: Unstable Pumpkin Seeds.
+---{Code:} sdf_pumpkin_bomb_plant
+
+--Skulking Pumpkin Plant: "This patch is looking so gloomy."
+---Plant which bears into a friendly Pumpkin Creeper.
+---Growth Time: 10 - 16 Daylight days
+---Grows from: Skulking Pumpkin Seeds.
+---{Code:} sdf_pumpkin_creeper_plant
+
+--Pumpking Plant: "Once good-natured pumpkins..."
+---Plant which bears into hostile fruit.
+---Type: Gourd Spawner
+----Growth Time: 0.6 - 1.2 Daylight days
+----{Code:} sdf_pumpking_gourd_plant_spawner
+---Type: Bomb Spawner
+----Growth Time: 0.4 - 0.8 Daylight days
+----{Code:} sdf_pumpking_bomb_plant_spawner
+---Type:  Creeper Spawner
+----Growth Time: 1 - 2 Daylight days
+----{Code:} sdf_pumpking_creeper_plant_spawner
+---Found: The Pumpkin Gorge (Savanna)
+
+--Pumpking Plant: "Call to gourds!"
+---Plant which bears into hostile fruit.
+---Type: Gourd
+----Growth Time: 14 sec
+----{Code:} sdf_pumpking_gourd_plant
+---Type: Bomb
+----Growth Time: 7 sec
+----{Code:} sdf_pumpking_bomb_plant
+---Type: Creeper
+----Growth Time: 21 sec
+----{Code:} sdf_pumpking_creeper_plant
+---Found: Spawns from The Pumpkin King
+
+--Chest Pumpkin: "Crate with a collection of goods!"
+---Loot: Random (Club, Throwing Daggers, Copper Shield)
+---Loot 2: Silver Shield
+---Respawn: 15 days
+---Found: The Pumpkin Gorge (Savanna)
+---{Code:} sdf_chest_pumpkin
+
+--Chest Life Bottle 1: "A well hidden hoard."
+---Loot: Life bottle (limited 1)
+---Loot 2: Random Pumpkin Pie/Energy Vial x2 (sdf) or Pumpkin Cookie/Honey Poultice (other characters)
+---Respawn: 10 days
+---Found: The Pumpkin Gorge (Savanna)
+---{Code:} sdf_chest_lifebottle1
+
+--The Haunted Ruins: "Some say King Peregrin's castle has seen better days, but the Shadow Demons beg to differ."
+---Found: Sacred Ruins
+
+--Haunted Ruins Gate: "These heavy iron bars give way only for those seeking the King!"
+---See your way out... or in.
+---Found: The Haunted Ruins (Sacred Ruins)
+---{Code:} sdf_haunted_ruins_gate
+
+--Haunted Ruins Lava Pond: "Don’t take the lava for granite..."
+---Pretty hot to Stones and Not-Stones
+---Found: The Haunted Ruins (Sacred Ruins)
+---{Code:} sdf_haunted_ruins_lava_pond
+
+--Chest Kingdom: "Reserved royal reliquary!"
+---Will knock anyway away while being guarded by golems.
+---Absorbs all Nightmare Fuel and Pure Horror laying close to it.
+---Loot: King Peregrins Lost Crown (limited 1)
+---Loot 2: Random colored Gem / Giants Ocarina
+---Respawn: 10 days
+---Found: The Haunted Ruins (Sacred Ruins)
+
+--Chest Haunted: "Coffer of curative stock."
+---Loot: Energy Vial (sdf) or Honey Poultice (other characters)
+---Respawn: 10 days
+---Found: The Haunted Ruins (Sacred Ruins)
+---{Code:} sdf_chest_haunted
+
+
+-Creature Changes:
+--Gallowmere Squire: -New- "A fallen Squire in service to King Peregrin!"
+---Health: 120
+---Weapon: Small Sword
+---Shield: Copper Shield
+---Attack Damage: 27.5
+---Attack Speed: 3.5
+---Movement Speed: 6
+---Reduced Damage Taken: 50%
+---Decay: 5 health every 10 sec
+---Energy Vial Chance on Death: 25%
+---Undeath Healing: Healing from Goodlightning and Anubis Stone is double effective!
+---{Code:} sdf_gallowmere_squire
+
+--King Peregrin: -New- "The last monarch of Gallowmere..."
+---Trader:
+----Sir Daniel Trades:
+-----Any Trinket: Its value as Gold Nuggets
+-----Foods:
+------Asparagus: Random Red Gem x1 or Blue Gem x1
+------Asparagus Cooked: Random Yellow Gem x1 or Green Gem x1
+------Asparagus Soup: Random Gem x1
+------Cabbage Rolls: Random Purple Gem x1 or Orange Gem x1
+----Wendy Trades:
+-----Nightmare Fuel: Gold Nugget x2
+-----Pure Terror: Gold Nugget x8
+-----Trinket: Mourning Glory x1
+-----Ghostly Elixirs:
+------Revenant Restorative: Random Red Gem x1 or Blue Gem x1
+------Spectral Cure-All: Random Purple Gem x1 or Orange Gem x1
+------Unyielding Draught: Random Red Gem x1 or Blue Gem x1
+------Distilled Vengeance: Random Purple Gem x1 or Orange Gem x1
+------Nightshade Nostrum: Random Purple Gem x1 or Orange Gem x1
+------Vigor Mortis: Random Yellow Gem x1 or Green Gem x1
+------Ghastly Experience: Random Gem x1
+------Cursed Vexation: Random Purple Gem x1 or Orange Gem x1 or Iridescent Gem x1
+------Luminous Wrath: Random Purple Gem x1 or Orange Gem x1 or Iridescent Gem x1
+---Item Interactions with Sir Daniel:
+----King Peregrins Crown Lost: Rewards with King Peregrins Crown
+----Shadow Artefact: Hints to Shadow Demon Tomb
+----Shadow Talisman: Rewards Anubis Stone Part 4 and Hints to final boss location.
+---Loot: King Peregrin's Crown
+---Loot2: Anubis Stone Part 4
+---Found: Hall of Heroes
+
+--Stone Golem: -New- "The latest in castle security!"
+---Type: Armored
+----Health: 9600
+----Planar Defense: 10
+----Attack Damage: 160
+----Attack Range: 4
+----Attack Speed: 8
+----Movement Speed: 1
+----Sanity Aura Drain: 1
+----Drops Common: Frazzled Wire x1, cutstone x2, rocks x2, flint x2
+----Drops Rare: 10% chance Optimize Data: Type_A x1, else Optimize Data: Damaged x1
+----Found: The Haunted Ruins (Sacred Ruins)
+---Type: Core
+----Health: 9600
+----Planar Defense: 10
+----Attack Damage: 160
+----Attack Range: 4
+----Attack Speed: 8
+----Movement Speed: 1.6
+----Sanity Aura Drain: 1
+----Drops Common: Frazzled Wire x1, cutstone x2, rocks x2, flint x2
+----Drops Rare: 10% chance Optimize Data: Type_C x1, else Optimize Data: Damaged x1
+----Found: The Haunted Ruins (Sacred Ruins)
+
+--Lava Golem: -New- "Vengeful heated slag..."
+---Health: 30
+---Damage Taken Max: 10
+---Attack Damage: 5
+---Planar Damage: 5
+---Attack Range: 30
+---Attack Speed: 4
+---Found: The Haunted Ruins summoned by Stone Golem: Armored
+
+--Asgard: -New- "Fortress of the Gods..."
+--Health: 2600
+--Planar Defense: 10
+--Combat Mode: Single
+---Attack Damage: 160
+--Combat Mode: AOE
+---Attack Damage: 80
+---AOE Range: 1.6
+--Attack Range: 4
+--Attack Speed: 8
+--Movement Walk Speed: 3
+--Movement Run Speed: 7
+--Optimize Data: Type_B:
+---Installed Algorithm: While leader is below 35% health, using Gaint's Ocarina will active a barrier that shields all allies from damage.
+----Radius: 8
+----Duration: 15 sec
+----Cooldown: 5 Min
+--Summoned by: Giants Ocarina
+--Death: 10 day cooldown on Giants Ocarina.
+
+--Asgard Lava Golem: -New- "Vengeful heated slag..."
+---Health: 60
+---Damage Taken Max: 10
+---Attack Damage: 5
+---Planar Damage: 5
+---Attack Range: 30
+---Attack Speed: 4
+---Found: Summoned by Asgard modified with Optimize Data: Type_A
+
+--Pumpkin King: -New- "Is a bad influence on those young seedlings."
+---Body:
+----Health: 9600
+----Planar Defense: 5
+----Fire Weakness: 3x damage from fire
+----Attack Damage: 100
+----Attack Range: 3
+----Sanity Aura Drain: 1
+----Growth Time: 10 Daylight days
+----Drops: Anubis Stone Part 2 (limited 1)
+----Drops Rare: pumpkin_seeds x2, rot x6
+----Drops Common: Random x1 (Writhing Pumpkin Seeds, Unstable Pumpkin Seeds, Skulking Pumpkin Seeds)
+---{Code:} sdf_pumpkin_king_plant
+---Vine: "A very painful ex-spear-ience."
+----Health: 384
+----Fire Weakness: 3x damage from fire
+----Attack Damage: 65
+----Attack Range: 4
+----Attack Speed: 2
+----Movement Speed: 2
+---Found: The Pumpkin Gorge (Savanna)
+
+--Pumpking Seed Pod: -New- "The root of the problem!"
+---Health: 120
+---Role: Provides healing to the Pumpkin King
+---Found: The Pumpkin Gorge (Savanna)
+
+--Pumpking Gourd: -New- "The true horror of fruit gone bad!"
+---Health: 340
+---Fire Weakness: 3x damage from fire
+---Max Pumpking Gourd Vines: 3
+---Grows From: Pumpking Plant
+---{Code:} sdf_pumpking_gourd
+---Pumpking Gourd Vine: "Lashings of thrashings!"
+----Health: 30
+----Fire Weakness: 3x damage from fire
+----Attack Damage: 10
+----Attack Range: 3
+----Attack Speed: 3
+----Sanity Aura Drain: 1
+----Spawns From: Pumpking Gourd
+---Found: The Pumpkin Gorge (Savanna)
+
+--Pumpking Bomb: -New- "The true horror of fruit gone bad!"
+---Health: 100
+---Fire Weakness: 3x damage from fire
+---Attack AOE Damage: 80
+---Ignite: Self detonate upon player proxy, timed, or by fire damage.
+---Crater: Leaves unstable ground for 1 min
+---Grows From: Pumpking Plant
+---{Code:} sdf_pumpking_bomb
+---Found: The Pumpkin Gorge (Savanna)
+
+--Pumpking Creeper: -New- "The true horror of fruit gone bad!"
+---Health: 180
+---Fire Weakness: 3x damage from fire
+---Attack AOE Damage: 20/3
+---Attack Count: 3
+---Movement Walk Speed: 2
+---Movement Run Speed: 5
+---Guts: Throws pumpkin guts at target, scaring creatures away or blinding players screen.
+----Range: 15
+----Cooldown: 10 sec
+---Fire Detector: Will put out burnable targets.
+----Range: 15
+----Cooldown: 5 sec
+---Clean up: Cleans area up of Rot, rocks, flint, nitre, twigs, and bird feathers.
+---Grows From: Pumpking Plant
+---{Code:} sdf_pumpking_creeper
+---Found: The Pumpkin Gorge (Savanna)
+
+--Pumpkin Gourd: -New- "Fruits brought to life and corrupted by magic."
+---Health: 460
+---Fire Weakness: 3x damage from fire
+---Max Pumpkin Gourd Vines: 4
+---Grows From: Writhing Pumpkin Plant
+---Drops: Leafy Meat
+---{Code:} sdf_pumpkin_gourd
+---Pumpkin Gourd Vine: "Lashings of thrashings!"
+----Health: 60
+----Fire Weakness: 3x damage from fire
+----Attack Damage: 5
+----Attack Range: 3
+----Attack Speed: 3
+----Spawns From: Pumpkin Gourd
+
+--Pumpkin Bomb: -New- "Fruits brought to life and corrupted by magic."
+---Health: 840
+---Fire Weakness: 3x damage from fire
+---Attack AOE Damage: 120
+---Taunt: Gathers aggro from hostile mobs
+----Radius: 8
+----Tick: 20 sec
+---Ignite: Self detonate upon attacked or by fire damage.
+---Crater: Leaves unstable ground for 1 min
+---Grows From: Unstable Pumpkin Plant
+---Drops: Leafy Meat
+---{Code:} sdf_pumpkin_bomb
+
+--Pumpkin Creeper: -New- "Fruits brought to life and corrupted by magic."
+---Health: 220
+---Fire Weakness: 3x damage from fire
+---Attack AOE Damage: 20/3
+---Attack Count: 3
+---Movement Walk Speed: 2
+---Movement Run Speed: 5
+---Guts: Throws pumpkin guts at target, scaring creatures away.
+----Range: 15
+----Cooldown: 10 sec
+---Fire Detector: Will put out burnable targets. Not Campfires or Torches
+----Range: 15
+----Cooldown: 5 sec
+---Clean up: Cleans area up of Rot
+---Grows From: Skulking Pumpkin Plant
+---Drops: Leafy Meat
+---{Code:} sdf_pumpkin_creeper
+
+
+-Oddity Fixes:
+
+
+Update:5.0.0 "For the Honor of Gallowmere"
+
+
+Update:5.0.0 "Witches, Ants, and Dragons"
+
+-Item Changes:
+--Witch Talisman:
+---Infomation Gargoyle (Crystal Caves): Offering will recover a Dragon Potion.
+
+
+Update:6.0.0
+Medievil 2 Update
+
+-Professor's Lab: An old hideaway, which Professor Hamilton Kift has setup as his Head Quarters.
+--Provides basic protection from the Enviroments.
+
+--Charcoal Converter: "Burns Charcoal into combustion energy!"
+---Purpose: Used to power up all devices in Professor's Lab
+---Fuel: Doubles the effectivenss of Charcoal as fuel, lasts for 90sec per Charcoal Consumed.
+
+--Incandescent Illuminator: "Powered by the Charcoal Converter."
+---Purpose: Provides light to the area during the night.
+---Fuel Source: Charcoal Converter.
+
+--Pinpoint Projector: "A device that projects a map made of light!"
+---Purpose: Provides locations of unclaimed Chalice of Soul Altars.
+---Fuel Source: Charcoal Converter.
+
+--Tesla Transformer: "Concentrates energy into a shocking matter."
+---Purpose: Stores up energy to "Jolt" a Graphing Gallow Creation to life.
+----Using a Lightning Gaunlet, player can Transfer Lightning at full power.
+---Fuel Source: Charcoal Converter.
+
+-New Weapons:
+--Cane Stick:  -New-
+---Damage: 27.5
+---Attack Speed: 0.5
+---Movement Speed: +30%
+---Gem Socket Cooldown: 3sec
+---Durability: 200
+---Socket Traits:
+----Red Gem: Ignite target on Hit.
+----Blue Gem: Chill target on Hit, Freeze target if chilled twice.
+----Purple Gem: Drain 6 Health from the target and heal owner.
+----Yellow Gem: Deal 4 Electric Damage to target, x3 times more if target is Wet.
+----Green Gem: Deal 2 Damage and root target in place for 3sec.
+----Orange Gem: Repair all Equipment slots by 1%, however not the Hand Item.
+----Iridescent Gem: Random effect from any Gem Type.
+---Gentleman Set Bonus: When wearing the Victorian Suit with the Cane Stick, all players in 15m gain 1 Sanity every 10sec.
+
+--Flaming Crossbow: -New-
+---Ability: Crossfire: Quickly fire repeated bolts at a target. Also causes the bolts to explode on contact, setting foes ablazed in the area.
+----Bolts Fired: 4
+----Aoe Radius: 1.6
+----Cooldown: 10 sec
+---Extra Trait: Ricochet: During Crossfire, hitting a Large or Epic or Structure target, causes the bolt to ricochet to a close by new target.
+----Damage: 50% of Bolt Damage
+----Ricochet Radius: 5.2
+---Range: 10
+---Attack Speed: 0.1
+---Durability: 200
+
+--Flaming Bolts: -New-
+---Lites target on fire.
+---Damage: 8
+---Projectile Speed: 25
+---Max Stack Size: 40
+
+--Pisol:  -New-
+---Ability: Quick Draw: Quickly fan the hammer, firing all chambered bullets at a target.
+----Bullets Fired: 6
+----Cooldown: 10 sec
+---Range: 10
+---Attack Speed: 1.3
+---Durability: 200
+
+--Standard Bullets:  -New-
+---Damage: 17
+---Projectile Speed: 40
+---Max Stack Size: 40
+
+--Blunderbuss:  -New-
+---2 handed weapon
+---Ability: Bombard: Launch a mortar at a targeted location, dealing damage in its wake.
+----Damage: 0.5 x Buckshot Damage
+----AOE Range: 12
+----Usage: 2
+----Cooldown: 15 sec
+---Range: 4
+---Attack Speed: 4
+---Durability: 200
+
+--Standard Buckshots:  -New-
+---Damage: 102
+---Projectile Speed: 40
+---Bombard AOE Damage: 51
+---Bombard AOE Radius: 2.4
+---Bombard AOE Projectile Speed: 40
+---Bombard AOE Work: 10
+---Max Stack Size: 20
+
+--Bombs:  -New-
+---Damage: 200
+---Attack Speed: 4
+---Max Stack Size: 20
+
+--Gatling Gun:  -New-
+---2 handed weapon
+---Range: 20
+---Attack Speed: About 30 Munition per Overheat.
+---Durability: 2160
+
+--Standard Munitions:  -New-
+---Damage: 14
+---Max Stack Size: 1
+
+-Creature Changes:
+--The Spiv:
+---Prices:
+----Flaming Bolts: 1g per 20 stack
+----Standard Bullets: 3g per 20 stack
+----Standard Shots: 3g per 10 stack
+----Bombs: 4g per 10 stack
+----Standard Munitions: 5g per 1 stack
+
+-Oddity Fixes:

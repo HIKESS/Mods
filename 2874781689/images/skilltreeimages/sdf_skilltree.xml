@@ -1,0 +1,33 @@
+﻿<Atlas>
+	<Texture filename="sdf_skilltree.tex" />
+	<Elements>
+		<Element name="background.tex" u1="0.001" u2="0.4120859375" v2="0.999" v1="0.2754140625" variant="" />
+		<Element name="sdf_background.tex" u1="0.4140859375" u2="0.82761328125" v2="0.999" v1="0.2636953125" variant="b" />
+		<Element name="overlay_left.tex" u1="0.82961328125" u2="0.85886328125" v2="0.999" v1="0.2754140625" variant="l" />
+		<Element name="overlay_right.tex" u1="0.86086328125" u2="0.889625" v2="0.999" v1="0.2754140625" variant="r" />
+		<Element name="skill_intimidating_1.tex" u1="0.001" u2="0.03025" v2="0.2734140625" v1="0.2129140625" variant="i" />
+		<Element name="skill_intimidating_10.tex" u1="0.09475" u2="0.124" v2="0.2734140625" v1="0.2129140625" variant="i" />
+		<Element name="skill_intimidating_11.tex" u1="0.03225" u2="0.0615" v2="0.0859140625" v1="0.0254140625" variant="i" />
+		<Element name="skill_intimidating_12.tex" u1="0.09475" u2="0.124" v2="0.2109140625" v1="0.1504140625" variant="i" />
+		<Element name="skill_intimidating_2.tex" u1="0.001" u2="0.03025" v2="0.2109140625" v1="0.1504140625" variant="i" />
+		<Element name="skill_intimidating_3.tex" u1="0.03225" u2="0.0615" v2="0.2734140625" v1="0.2129140625" variant="i" />
+		<Element name="skill_intimidating_4.tex" u1="0.0635" u2="0.09275" v2="0.2734140625" v1="0.2129140625" variant="i" />
+		<Element name="skill_intimidating_5.tex" u1="0.03225" u2="0.0615" v2="0.2109140625" v1="0.1504140625" variant="i" />
+		<Element name="skill_intimidating_6.tex" u1="0.001" u2="0.03025" v2="0.1484140625" v1="0.0879140625" variant="i" />
+		<Element name="skill_intimidating_7.tex" u1="0.0635" u2="0.09275" v2="0.2109140625" v1="0.1504140625" variant="i" />
+		<Element name="skill_intimidating_8.tex" u1="0.03225" u2="0.0615" v2="0.1484140625" v1="0.0879140625" variant="i" />
+		<Element name="skill_intimidating_9.tex" u1="0.001" u2="0.03025" v2="0.0859140625" v1="0.0254140625" variant="i" />
+		<Element name="skill_unintimidating_1.tex" u1="0.126" u2="0.15525" v2="0.2734140625" v1="0.2129140625" variant="u" />
+		<Element name="skill_unintimidating_10.tex" u1="0.15725" u2="0.1865" v2="0.2109140625" v1="0.1504140625" variant="u" />
+		<Element name="skill_unintimidating_11.tex" u1="0.21975" u2="0.249" v2="0.2734140625" v1="0.2129140625" variant="u" />
+		<Element name="skill_unintimidating_12.tex" u1="0.1885" u2="0.21775" v2="0.2109140625" v1="0.1504140625" variant="u" />
+		<Element name="skill_unintimidating_2.tex" u1="0.0635" u2="0.09275" v2="0.1484140625" v1="0.0879140625" variant="u" />
+		<Element name="skill_unintimidating_3.tex" u1="0.126" u2="0.15525" v2="0.2109140625" v1="0.1504140625" variant="u" />
+		<Element name="skill_unintimidating_4.tex" u1="0.0635" u2="0.09275" v2="0.0859140625" v1="0.0254140625" variant="u" />
+		<Element name="skill_unintimidating_5.tex" u1="0.09475" u2="0.124" v2="0.1484140625" v1="0.0879140625" variant="u" />
+		<Element name="skill_unintimidating_6.tex" u1="0.15725" u2="0.1865" v2="0.2734140625" v1="0.2129140625" variant="u" />
+		<Element name="skill_unintimidating_7.tex" u1="0.126" u2="0.15525" v2="0.1484140625" v1="0.0879140625" variant="u" />
+		<Element name="skill_unintimidating_8.tex" u1="0.09475" u2="0.124" v2="0.0859140625" v1="0.0254140625" variant="u" />
+		<Element name="skill_unintimidating_9.tex" u1="0.1885" u2="0.21775" v2="0.2734140625" v1="0.2129140625" variant="u" />
+	</Elements>
+</Atlas>
