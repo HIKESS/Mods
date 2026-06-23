@@ -1,0 +1,23 @@
+adiciona as falas na hora de examinar cada um atualmente é só uma genérica its a thing.(sem ")
+Butler Bot
+"Remarkably efficient."
+Brute Bot
+"Sometimes the best solution is simply more armor."
+Buster Bot
+"Violence, carefully engineered."
+Ballistic Bot
+"Peak automated lightning power."
+Sentry Gun
+"Always watching."
+ Dispenser
+"My favorite kind of investment."
+Telepad
+"Spatial relocation begins here."
+Teleporter Entrance
+"The journey starts here."
+Teleporter Exit
+"You've arrived. Probably."
+Telebrella
+"Weather is simply another engineering problem."
+Thumper
+"Elegance hidden beneath brute force."
