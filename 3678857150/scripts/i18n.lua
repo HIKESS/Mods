@@ -1,0 +1,208 @@
+-- ========== 多语言支持 ==========
+
+local function _DetectLang()
+    -- 优先检查游戏UI字符串是否为中文
+    local ok, val = GLOBAL.pcall(function()
+        return GLOBAL.STRINGS.UI.MAINSCREEN.PLAY
+    end)
+    if ok and val and val:match("[\228-\233]") then
+        return "zh"
+    end
+    local ok2, lt = GLOBAL.pcall(function() return GLOBAL.LanguageTranslator end)
+    if ok2 and lt and lt.defaultlanguage then
+        local l = tostring(lt.defaultlanguage)
+        if l:find("zh") or l == "schinese" or l == "tchinese" then
+            return "zh"
+        end
+    end
+    return "en"
+end
+LANG = _DetectLang()
+
+TRANSLATIONS = {
+    -- 列表表头
+    col_player   = {zh="玩家名",     en="Player"},
+    col_status   = {zh="状态",       en="Status"},
+    col_items    = {zh="物品",       en="Items"},
+    col_actions  = {zh="操作",       en="Actions"},
+    -- 状态文字
+    status_ghost = {zh="幽灵",       en="Ghost"},
+    status_lobby = {zh="大厅",       en="Lobby"},
+    status_cross = {zh="跨世界...",  en="Cross-Shard..."},
+    -- 按钮
+    btn_items    = {zh="物品",       en="Items"},
+    btn_respawn  = {zh="复活",       en="Revive"},
+    btn_fullrest = {zh="全满",       en="Full"},
+    -- 装备槽
+    slot_head    = {zh="头",         en="Head"},
+    slot_body    = {zh="身",         en="Body"},
+    slot_hands   = {zh="手",         en="Hands"},
+    -- 物品查看界面
+    sec_equip    = {zh="装备",       en="Equipment"},
+    sec_inv      = {zh="物品栏",     en="Inventory"},
+    sec_bag      = {zh="背包",       en="Backpack"},
+    tip_items    = {zh="左键:拿取全部  Ctrl+左键:拿取一半  右键:拿取1个  手持物品点击:给予  Shift+左键:快速整组转移",
+                    en="LClick, Ctrl+LClick, RClick, Shift+LClick"},
+    btn_panel    = {zh="管理员面板（可拖动）",  en="Admin Panel (Draggable)"},
+    btn_show_offline = {zh="显示离线玩家", en="Offline Players"},
+    btn_show_npc = {zh="显示NPC", en="NPC"},
+    -- 物品面板标题
+    title_items_suffix = {zh="的物品", en="'s Items"},
+    -- NPC 解除跟随
+    btn_dismiss  = {zh="解除跟随",    en="Dismiss"},
+    -- NPC 物品面板：拾取并装备地面背包
+    btn_equip_backpack = {zh="装备背包", en="Equip Backpack"},
+    -- 右键动作
+    action_view_inv = {zh="查看玩家物品", en="View Player Items"},
+    action_revive   = {zh="复活玩家",     en="Revive Player"},
+    action_view_npc = {zh="查看NPC物品",  en="View NPC Items"},
+    -- NPC 状态面板
+    action_npc_status = {zh="查看NPC状态",     en="View NPC Status"},
+    action_revive_npc = {zh="复活NPC",         en="Revive NPC"},
+    btn_follow        = {zh="跟随",            en="Follow"},
+    btn_unfollow      = {zh="解除跟随",        en="Dismiss"},
+    btn_farm_here     = {zh="在此种植",        en="Farm Here"},
+    btn_cook_here     = {zh="在此烹饪",        en="Cook Here"},
+    btn_organize_here = {zh="在此整理物品",    en="Organize Here"},
+    btn_clean_here    = {zh="在此处整理",      en="Clean Here"},
+    btn_collect_organize_on  = {zh="[x] 物品分类", en="[x] Sort Items"},
+    btn_collect_organize_off = {zh="[ ] 物品分类", en="[ ] Sort Items"},
+    btn_chop_here     = {zh="在此砍树",        en="Chop Here"},
+    btn_open_rift     = {zh="开启裂缝",        en="Open Rift"},
+    btn_create_pool   = {zh="创建池塘",        en="Create Pool"},
+    btn_stop_work     = {zh="停止工作",        en="Stop Work"},
+    btn_work_locked_affinity = {zh="好感度不足，太累了无法工作（喂食恢复）", en="Affinity too low—too tired to work (feed to recover)"},
+    btn_work_busy            = {zh="正在工作中（点\"停止工作\"可结束）",      en="Currently working (click \"Stop Work\" to end)"},
+    NPCFRIEND_ABILITY_FISH = {zh="钓鱼",            en="Fish Here"},
+    btn_wilson_show_npc_locations = {zh="查看NPC位置", en="Find NPCs"},
+    btn_wilson_unlock_transmute = {zh="开启制作科技", en="Unlock Craft Tech"},
+    btn_wilson_purebrilliance = {zh="制作纯粹辉煌", en="Pure Brilliance"},
+    btn_wilson_horrorfuel = {zh="制作纯粹恐惧", en="Pure Horror"},
+    btn_winona_generator = {zh="宝石发电机",      en="Generator"},
+    btn_winona_spotlight = {zh="聚光灯",          en="Spotlight"},
+    btn_winona_catapult  = {zh="投石机",          en="Catapult"},
+    btn_winona_tape      = {zh="制作胶带",        en="Craft Tape"},
+    btn_waxwell_magic_chest = {zh="制作魔术箱",      en="Build Magic Chest"},
+    btn_wilba_weapon_shop   = {zh="武器店",      en="Weapon Shop"},
+    btn_wilba_deli_shop     = {zh="食物店",      en="Delicatessen"},
+    btn_wilba_general_shop  = {zh="杂货店",      en="General Store"},
+    btn_wilba_florist_shop  = {zh="花店",        en="Florist"},
+    btn_wilba_quest         = {zh="公主的任务",        en="Princess's Quest"},
+    btn_wathgrithr_spear  = {zh="战斗长矛",        en="Battle Spear"},
+    btn_wathgrithr_helmet = {zh="战斗头盔",        en="Battle Helmet"},
+    btn_combat_settings_tip = {zh="NPC 战斗设置 (R)", en="NPC Combat Settings (R)"},
+    btn_walter_ammo_gold = {zh="黄金弹药", en="Gold Ammo"},
+    btn_walter_ammo_scrapfeather = {zh="电子废料弹药", en="Scrapfeather Ammo"},
+    btn_walter_ammo_thulecite = {zh="诅咒弹药", en="Cursed Ammo"},
+    btn_walter_ammo_horrorfuel = {zh="恐惧弹药", en="Horror Ammo"},
+    btn_walter_ammo_freeze = {zh="冰冻弹药", en="Freeze Ammo"},
+    btn_walter_ammo_slow = {zh="减速弹药", en="Slow Ammo"},
+    btn_walter_auto_story_on = {zh="讲故事 ✓", en="Tell Story ✓"},
+    btn_walter_auto_story_off = {zh="讲故事", en="Tell Story"},
+    label_walter_campfire_search_range = {zh="搜索篝火范围", en="Campfire Search"},
+    btn_wickerbottom_grow_crops = {zh="催熟作物", en="Grow Crops"},
+    btn_willow_rainbow_fireflies = {zh="制作七彩萤火虫", en="Rainbow Fireflies"},
+    btn_wx78_transport_drone = {zh="运输机", en="Transport Drone"},
+    btn_wonkey_bananabush = {zh="制作香蕉丛", en="Banana Bush"},
+    btn_wonkey_monkeytail = {zh="制作猴尾草", en="Monkeytail"},
+    btn_wonkey_ancienttree_seed = {zh="制作惊喜种子", en="Surprise Seed"},
+    label_health      = {zh="健康值",          en="Health"},
+    label_hunger      = {zh="饥饿值",          en="Hunger"},
+    label_sanity      = {zh="精神值",          en="Sanity"},
+    label_affinity    = {zh="好感度",          en="Affinity"},
+    label_follower    = {zh="跟随者",          en="Follower"},
+    -- 好感度图标与介绍界面
+    btn_npc_affinity_tip = {zh="查看好感度介绍", en="View Affinity"},
+    btn_affinity_back    = {zh="返回",          en="Back"},
+    btn_affinity_close   = {zh="关闭面板",      en="Close"},
+    affinity_death_note     = {zh="死亡一次 -%d 好感度", en="Each death: -%d affinity"},
+    affinity_section_gain   = {zh="好感度提升方式", en="How to Gain Affinity"},
+    affinity_section_unlock = {zh="解锁内容",       en="Unlocks"},
+    affinity_gain_normal_food = {zh="喂食普通食物",   en="Feed normal food"},
+    affinity_gain_prepared_food = {zh="喂食做完的料理", en="Feed prepared dishes"},
+    affinity_gain_ingredient_food = {zh="喂食普通食材", en="Feed normal ingredients"},
+    affinity_gain_seed_food = {zh="喂食种子 / 烤种子", en="Feed seeds / toasted seeds"},
+    affinity_gain_other_food = {zh="喂食其他食物", en="Feed other food"},
+    affinity_gain_baconeggs   = {zh="喂食培根煎蛋",   en="Feed Bacon and Eggs"},
+    affinity_gain_meat        = {zh="喂食肉类",       en="Feed meat"},
+    affinity_gain_turkeydinner   = {zh="喂食火鸡正餐", en="Feed Turkey Dinner"},
+    affinity_gain_pomegranate    = {zh="喂食石榴 / 熟石榴", en="Feed Pomegranate (raw/cooked)"},
+    affinity_gain_lobsterdinner  = {zh="喂食龙虾正餐", en="Feed Lobster Dinner"},
+    affinity_gain_surfnturf      = {zh="喂食海鲜牛排", en="Feed Surf 'n' Turf"},
+    affinity_gain_hotchili         = {zh="喂食辣椒炖肉",   en="Feed Spicy Chili"},
+    affinity_gain_butterflymuffin  = {zh="喂食蝴蝶松饼",   en="Feed Butterfly Muffin"},
+    affinity_gain_potato_cooked    = {zh="喂食烤土豆",     en="Feed Cooked Potato"},
+    affinity_gain_taffy            = {zh="喂食太妃糖",     en="Feed Taffy"},
+    affinity_gain_bananapop        = {zh="喂食香蕉冻",     en="Feed Banana Pop"},
+    affinity_gain_vegstinger       = {zh="喂食蔬菜鸡尾酒", en="Feed Veggie Stinger"},
+    affinity_gain_freshfruitcrepes = {zh="喂食鲜果可丽饼", en="Feed Fresh Fruit Crepes"},
+    affinity_gain_trailmix         = {zh="喂食什锦干果",   en="Feed Trail Mix"},
+    affinity_gain_honeynuggets     = {zh="喂食蜜汁卤肉",   en="Feed Honey Nuggets"},
+    affinity_gain_cave_banana      = {zh="喂食洞穴香蕉（生/熟）", en="Feed Cave Banana (raw/cooked)"},
+    affinity_unlock_follow    = {zh="解锁跟随 / 解除跟随", en="Unlock Follow / Dismiss"},
+    affinity_unlock_show_npc  = {zh="解锁查看其他NPC位置", en="Unlock View Other NPCs"},
+    affinity_unlock_fishing   = {zh="解锁钓鱼", en="Unlock Fishing"},
+    affinity_unlock_ocean_fishing = {zh="解锁海钓", en="Unlock Ocean Fishing"},
+    affinity_unlock_winona_craft = {zh="解锁制作专属栏（胶带 / 发电机 / 聚光灯 / 投石器）", en="Unlock Crafting (Tape / Generator / Spotlight / Catapult)"},
+    affinity_unlock_walter_craft = {zh="解锁制作弹药专属栏", en="Unlock Ammo Crafting"},
+    affinity_unlock_walter_autostory = {zh="解锁自动讲故事", en="Unlock Auto Story"},
+    affinity_unlock_wx78_leap = {zh="解锁跳劈技能", en="Unlock Leap Slash"},
+    affinity_unlock_wanda_rift = {zh="解锁开启裂隙（地上地下互通）", en="Unlock Open Rift (links Master & Caves)"},
+    affinity_unlock_woodie_chop = {zh="解锁在此处砍树", en="Unlock Chop Here"},
+    affinity_unlock_clean_here  = {zh="解锁在此整理", en="Unlock Clean Here"},
+    affinity_unlock_wilba_quest = {zh="解锁任务按键", en="Unlock Quest Button"},
+    affinity_unlock_work_here   = {zh="解锁在此处工作（开工后好感度每分钟-1，<5停工）", en="Unlock Work Here (-1/min while working, stops below 5)"},
+    affinity_unlock_craft     = {zh="解锁制作科技",   en="Unlock Craft Tech"},
+    affinity_unlock_wathgrithr_spear  = {zh="解锁制作战斗长矛", en="Unlock Craft Battle Spear"},
+    affinity_unlock_wathgrithr_helmet = {zh="解锁制作战斗头盔", en="Unlock Craft Battle Helmet"},
+    affinity_unlock_battle_song       = {zh="解锁战斗战歌（战斗中自动释放）", en="Unlock Battle Song (auto in combat)"},
+    affinity_unlock_wortox_heal       = {zh="解锁自动灵魂回血", en="Unlock Auto Soul Heal"},
+    affinity_unlock_waxwell_chest     = {zh="解锁制作魔术箱（地上地下互通）", en="Unlock Magic Chest (links Master & Caves)"},
+    affinity_unlock_waxwell_protector = {zh="解锁暗影护卫", en="Unlock Shadow Protector"},
+    affinity_unlock_waxwell_prison    = {zh="解锁暗影牢笼", en="Unlock Shadow Prison"},
+    affinity_unlock_scholar_extinguish = {zh="解锁自动灭火", en="Unlock Auto Extinguish"},
+    affinity_unlock_scholar_care       = {zh="解锁自动控温 / 除湿", en="Unlock Auto Temperature & Dry"},
+    affinity_unlock_scholar_grow       = {zh="解锁催熟作物", en="Unlock Grow Crops"},
+    affinity_unlock_wonkey_monkeytail  = {zh="解锁制作猴尾草苗", en="Unlock Craft Monkeytail Sprout"},
+    affinity_unlock_wonkey_bananabush  = {zh="解锁制作香蕉树苗", en="Unlock Craft Banana Bush"},
+    affinity_unlock_wonkey_ancienttree = {zh="解锁制作惊喜种子", en="Unlock Craft Surprise Seed"},
+    affinity_status_unlocked  = {zh="已解锁",         en="Unlocked"},
+    affinity_status_locked    = {zh="未解锁",         en="Locked"},
+    affinity_status_need      = {zh="还需 %d",        en="need %d more"},
+    affinity_no_intro         = {zh="该角色暂无好感度介绍", en="No affinity info for this character"},
+    label_show_work_range = {zh="显示工作范围", en="Work Range"},
+    label_chop_big        = {zh="砍大树（含老树）", en="Chop Big (incl. Old)"},
+    label_chop_medium     = {zh="砍中树",           en="Chop Medium"},
+    label_chop_small      = {zh="砍小树",           en="Chop Small"},
+    label_dig_stump       = {zh="挖树根",           en="Dig Stumps"},
+    label_chop_twiggy     = {zh="砍多枝树",         en="Chop Twiggy Trees"},
+    label_work_range   = {zh="工作范围",       en="Work Range"},
+    label_scholar_care_range = {zh="控温灭火范围", en="Thermo/Fire"},
+    label_scholar_growth_range = {zh="催熟范围", en="Growth Range"},
+    label_show_heal_range = {zh="显示回血范围", en="Healing Range"},
+    label_cook_max_dish   = {zh="最大相同食物数量", en="Max Same Dish"},
+    label_fish_max_catch  = {zh="最大钓鱼次数",   en="Max Fishing Count"},
+    label_organize_range  = {zh="工作范围",         en="Work Range"},
+    btn_fish_deposit = {zh="钓鱼存放点", en="Fish Deposit"},
+    btn_wormwood_crop_deposit = {zh="作物存放点", en="Crop Deposit"},
+    btn_wormwood_trash_deposit = {zh="垃圾存放点", en="Trash Deposit"},
+    label_show_fish_range = {zh="显示存放范围", en="Show Crop Range"},
+    label_show_wormwood_crop_range = {zh="显示存放范围", en="Show Crop Range"},
+    label_show_wormwood_trash_range = {zh="显示垃圾范围", en="Show Trash Range"},
+    btn_ocean_fish_here = {zh="海钓", en="Ocean Fish"},
+    label_ocean_fish_max_catch = {zh="最大海钓次数", en="Max Ocean Catch"},
+    btn_ocean_fish_deposit = {zh="海钓存放点", en="Ocean Deposit"},
+    label_show_ocean_fish_range = {zh="显示存放范围", en="Show Crop Range"},
+    btn_ocean_fish_murder_on  = {zh="是否杀鱼 ✓", en="Kill Fish ✓"},
+    btn_ocean_fish_murder_off = {zh="是否杀鱼",     en="Kill Fish"},
+    label_tts_volume = {zh="语音音量", en="TTS Volume"},
+    btn_npc_skin_tip = {zh="衣柜", en="Change NPC Outfit"},
+    status_active     = {zh="✓",              en="✓"},
+    status_inactive   = {zh="✗",              en="✗"},
+}
+
+function T(key)
+    local entry = TRANSLATIONS[key]
+    if not entry then return key end
+    return entry[LANG] or entry["en"] or key
+end
