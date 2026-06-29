@@ -145,7 +145,19 @@ function GENDERER.SubGender(str, gender)
 	if str == nil then
 		return ""
 	end
-	
+
+	-- Defensive: if str is not a string (e.g., a table speech structure
+	-- like {default="...", emote="..."} passed by BattleCry via
+	-- talker:Say), return it unchanged. Without this guard, str:find()
+	-- crashes with "attempt to call method 'find' (a nil value)" because
+	-- tables do not have a :find() method. See crash report at
+	-- gender.lua:149 when Wagstaff attacks a Bunnyman with a cane:
+	-- Combat:BattleCry passes a table speech to talker:Say, which the
+	-- speech.lua translator hook forwards to SubGender.
+	if type(str) ~= "string" then
+		return str
+	end
+
 	if not str:find("G|") then
 		return str
 	end
