@@ -1,0 +1,234 @@
+
+local dev_mode=aipGetModConfig("dev_mode")=="enabled"
+
+local brain=require("brains/aip_nectar_bee_brain")
+
+local assets={
+Asset("ANIM","anim/aip_nectar_bee.zip"),
+Asset("SOUND","sound/glommer.fsb"),
+}
+
+
+local language=aipGetModConfig("language")
+
+local LANG_MAP={
+english={
+NAME="Greedy Bumblebee",
+DESC="Looks like it loves nectar",
+SAY_NEED_NECTAR={
+"Where is nectar",
+"Sad,I can't make nectar",
+"Any delicious nectar?",
+"What's Nectar Maker?'",
+"Nectar can also make nectar",
+"Can nectar burn?"
+},
+SAY_NECTAR_BAD="Not good",
+SAY_NECTAR_NORMAL="Good. Do you know Magic Rubik can be ignited by hound?",
+SAY_NECTAR_GOOD="It's delicious!",
+SAY_WELL_DONE="You have completed the trial,this is the reward",
+},
+chinese={
+NAME="贪吃熊蜂",
+DESC="它看起来很喜欢吃花蜜",
+SAY_NEED_NECTAR={
+"好想吃花蜜呐",
+"可惜我不会做花蜜",
+"有好吃的花蜜吗",
+"花蜜酿造桶是什么？",
+"花蜜好像可以二次加工",
+"花蜜能燃烧吗？"
+},
+SAY_NECTAR_BAD="这花蜜不咋地",
+SAY_NECTAR_NORMAL="好吃。你知道 魔力方阵 可以被猎犬引火吗?",
+SAY_NECTAR_GOOD="这花蜜真好吃",
+SAY_WELL_DONE="你完成了试炼，这是奖励",
+},
+}
+
+local LANG=LANG_MAP[language] or LANG_MAP.english
+
+
+STRINGS.NAMES.AIP_NECTAR_BEE=LANG.NAME
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.AIP_NECTAR_BEE=LANG.DESC
+
+
+local function say(inst,text)
+inst.components.timer:StopTimer("talked")
+inst.components.talker:Say(text)
+inst.components.timer:StartTimer("talked",8)
+end
+
+
+local function doBrain(inst)
+aipQueue({
+
+function()
+if inst.components.timer:TimerExists("giveFinalGift") then
+return true
+end
+
+local players=aipFindNearPlayers(inst,3)
+
+for _,player in ipairs(players) do
+if aipBufferExist(player,"aip_torch_warm") then
+
+aipTypePrint("giveFinalGift",inst.components.timer:TimerExists("giveFinalGift"))
+aipTypePrint("player",player.components.builder:KnowsRecipe("aip_torch_stand_final"))
+if
+not inst.components.timer:TimerExists("giveFinalGift") and
+not player.components.builder:KnowsRecipe("aip_torch_stand_final")
+then
+inst._aipGift="aip_torch_stand_final_blueprint"
+inst.sg:GoToState("gift")
+inst.components.timer:StartTimer("giveFinalGift",60)
+end
+
+say(inst,LANG.SAY_WELL_DONE)
+return true
+end
+end
+end,
+
+
+function()
+if inst.components.timer:TimerExists("talked") then
+return true
+end
+
+
+local text=aipRandomEnt(LANG.SAY_NEED_NECTAR)
+say(inst,text)
+return true
+end,
+})
+end
+
+
+local function onNear(inst,player)
+inst.components.aipc_timer:NamedInterval("talkCheck",0.5,function()
+doBrain(inst)
+end)
+end
+
+local function onFar(inst,player)
+inst.components.aipc_timer:KillName("talkCheck")
+end
+
+
+local function validteFood(food)
+return food~=nil and food:HasTag("aip_nectar")
+end
+
+local function ShouldAcceptItem(inst,item)
+return validteFood(item)
+end
+
+local function OnGetItemFromPlayer(inst,giver,item)
+end
+
+
+local function OnEat(inst,food)
+if validteFood(food) then
+local currentQuality=food.currentQuality or 0
+local text=nil
+local gift=nil
+
+if currentQuality <=1 then
+text=LANG.SAY_NECTAR_BAD
+elseif currentQuality <=3 then
+text=LANG.SAY_NECTAR_NORMAL
+gift="aip_torch"
+else
+text=LANG.SAY_NECTAR_GOOD
+gift="aip_torch_blueprint"
+end
+
+say(inst,text)
+
+
+inst._aipGift=gift
+end
+end
+
+
+local function fn()
+local inst=CreateEntity()
+
+inst.entity:AddTransform()
+inst.entity:AddAnimState()
+inst.entity:AddSoundEmitter()
+inst.entity:AddDynamicShadow()
+inst.entity:AddMiniMapEntity()
+inst.entity:AddNetwork()
+
+inst.DynamicShadow:SetSize(2,.75)
+
+MakeGhostPhysics(inst,1,.5)
+
+inst.Transform:SetFourFaced()
+
+
+inst:AddTag("flying")
+inst:AddTag("ignorewalkableplatformdrowning")
+inst:AddTag("aip_nectar_bee")
+
+inst.AnimState:SetBank("aip_nectar_bee")
+inst.AnimState:SetBuild("aip_nectar_bee")
+inst.AnimState:PlayAnimation("idle_loop",true)
+
+
+inst.entity:SetPristine()
+
+inst:AddComponent("talker")
+inst.components.talker.fontsize=35
+inst.components.talker.font=TALKINGFONT
+inst.components.talker.offset=Vector3(0,-500,0)
+
+if not TheWorld.ismastersim then
+return inst
+end
+
+inst:AddComponent("locomotor")
+inst.components.locomotor:EnableGroundSpeedMultiplier(false)
+inst.components.locomotor:SetTriggersCreep(false)
+inst.components.locomotor.pathcaps={
+ignorewalls=true,
+ignorecreep=true,
+
+}
+inst.components.locomotor.walkspeed=TUNING.CRAWLINGHORROR_SPEED
+
+inst:AddComponent("playerprox")
+inst.components.playerprox:SetDist(5,8)
+inst.components.playerprox:SetOnPlayerNear(onNear)
+inst.components.playerprox:SetOnPlayerFar(onFar)
+
+inst:SetStateGraph("SGaip_nectar_bee")
+inst:SetBrain(brain)
+
+inst:AddComponent("aipc_timer")
+inst:AddComponent("timer")
+
+inst:AddComponent("inventory")
+
+inst:AddComponent("inspectable")
+
+inst:AddComponent("trader")
+inst.components.trader:SetAcceptTest(ShouldAcceptItem)
+inst.components.trader.onaccept=OnGetItemFromPlayer
+inst.components.trader.deleteitemonaccept=false
+
+inst:AddComponent("eater")
+inst.components.eater:SetDiet({ FOODGROUP.OMNI },{ FOODGROUP.OMNI })
+inst.components.eater:SetCanEatHorrible()
+inst.components.eater:SetCanEatRaw()
+inst.components.eater:SetStrongStomach(true)
+inst.components.eater:SetOnEatFn(OnEat)
+
+inst.persists=false
+
+return inst
+end
+
+return Prefab("aip_nectar_bee",fn,assets)

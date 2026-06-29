@@ -1,0 +1,240 @@
+local _G=GLOBAL
+local State=_G.State
+
+
+
+
+local RANGE=1900
+
+
+local function inPlace(x,z,offset)
+offset=offset or 50
+return x >=RANGE-offset and x <=RANGE+offset and
+z >=RANGE-offset and z <=RANGE+offset
+end
+
+
+AddPrefabPostInit("world",function(inst)
+local map=_G.getmetatable(inst.Map).__index
+if map then
+local old_IsAboveGroundAtPoint=map.IsAboveGroundAtPoint
+map.IsAboveGroundAtPoint=function(self,x,y,z,...)
+if inPlace(x,z) then
+return true
+end
+return old_IsAboveGroundAtPoint(self,x,y,z,...)
+end
+
+local old_IsVisualGroundAtPoint=map.IsVisualGroundAtPoint
+map.IsVisualGroundAtPoint=function(self,x,y,z,...)
+if inPlace(x,z) then
+return true
+end
+return old_IsVisualGroundAtPoint(self,x,y,z,...)
+end
+
+local old_GetTileCenterPoint=map.GetTileCenterPoint
+map.GetTileCenterPoint=function(self,x,y,z)
+if inPlace(x,z,0) then
+return math.floor(x/4)*4+2,0,math.floor(z/4)*4+2
+end
+if z then
+return old_GetTileCenterPoint(self,x,y,z)
+else
+return old_GetTileCenterPoint(self,x,y)
+end
+end
+end
+end)
+
+AddComponentPostInit("birdspawner",function(self)
+local oriSpawnBird=self.SpawnBird
+
+function self:SpawnBird(spawnpoint,...)
+
+if inPlace(spawnpoint.x,spawnpoint.z) then
+_G.aipPrint("BLOCK Bird Spawn")
+return
+end
+
+return oriSpawnBird(self,spawnpoint,...)
+end
+end)
+
+AddPrefabPostInit("world",function(inst)
+if _G.TheNet:GetIsServer() or _G.TheNet:IsDedicated() then
+if not inst.components.aipc_blackhole then
+inst:AddComponent("aipc_blackhole")
+end
+end
+end)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+local function ForceStopHeavyLifting(inst)
+if inst.components.inventory:IsHeavyLifting() then
+inst.components.inventory:DropItem(
+inst.components.inventory:Unequip(EQUIPSLOTS.BODY),
+true,
+true
+)
+end
+end
+
+local function StartTeleporting(inst)
+inst.sg.statemem.isteleporting=true
+
+inst.components.health:SetInvincible(true)
+if inst.components.playercontroller~=nil then
+inst.components.playercontroller:Enable(false)
+end
+inst:Hide()
+inst.DynamicShadow:Enable(false)
+end
+
+local function DoneTeleporting(inst)
+inst.sg.statemem.isteleporting=false
+
+inst.components.health:SetInvincible(false)
+if inst.components.playercontroller~=nil then
+inst.components.playercontroller:Enable(true)
+end
+inst:Show()
+inst.DynamicShadow:Enable(true)
+end
+
+AddStategraphState("wilson",State {
+name="aip_sink_space",
+tags={ "busy","nopredict","nomorph","drowning","nointerrupt" },
+
+onenter=function(inst,shore_pt)
+ForceStopHeavyLifting(inst)
+inst:ClearBufferedAction()
+
+inst.components.locomotor:Stop()
+inst.components.locomotor:Clear()
+
+inst.AnimState:PlayAnimation("sink")
+inst.SoundEmitter:PlaySound((inst.talker_path_override or "dontstarve/characters/")..(inst.soundsname or inst.prefab).."/sinking")
+if inst.components.rider:IsRiding() then
+inst.sg:AddStateTag("dismounting")
+end
+
+
+
+
+
+
+inst.DynamicShadow:Enable(false)
+
+inst:ShowHUD(false)
+end,
+
+timeline={
+_G.TimeEvent(75*_G.FRAMES,function(inst)
+
+inst.SoundEmitter:PlaySound("turnoftides/common/together/water/splash/medium")
+end),
+},
+
+events={
+_G.EventHandler("animover",function(inst)
+if inst.AnimState:AnimDone() then
+StartTeleporting(inst)
+
+if inst.sg:HasStateTag("dismounting") then
+inst.sg:RemoveStateTag("dismounting")
+
+local mount=inst.components.rider:GetMount()
+inst.components.rider:ActualDismount()
+
+
+
+
+
+
+
+
+
+end
+
+local pos=inst:GetPosition()
+
+if _G.TheWorld.components.aipc_blackhole then
+_G.TheWorld.components.aipc_blackhole:StartGame()
+
+pos=_G.TheWorld.components.aipc_blackhole:GetPos()
+end
+
+
+local pt=inst:GetPosition()
+inst.components.drownable.dest_x=pos.x
+inst.components.drownable.dest_y=pos.y
+inst.components.drownable.dest_z=pos.z
+inst.components.drownable:WashAshore()
+
+
+end
+end),
+
+_G.EventHandler("on_washed_ashore",function(inst)
+
+inst.sg:GoToState("wakeup")
+end),
+},
+
+onexit=function(inst)
+
+
+
+
+if inst.sg.statemem.isteleporting then
+DoneTeleporting(inst)
+end
+
+inst.DynamicShadow:Enable(true)
+inst:ShowHUD(true)
+end,
+})
